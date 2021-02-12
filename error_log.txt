@@ -1,0 +1,2 @@
+[12-Feb-2021 16:48:49 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'akash'@'localhost' (using password: YES) in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 7
+[12-Feb-2021 16:51:02 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'akash'@'localhost' (using password: YES) in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 7
