@@ -1,0 +1,21 @@
+body{
+    background-color: #d9dbda;
+}
+
+.main_div{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:350px;
+    height:500px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color:white;
+    border-radius:15px;
+}
+
+.heading{
+    width: 100%;
+    text-align: center;
+}

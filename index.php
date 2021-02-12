@@ -1,9 +1,10 @@
 <html>
     <head>
         <title>Ecommerce Website</title>
+        <script src="js/index.js"></script>
     </head>
     <body>
-        <input type="button" value="Add Category">
+        <input type="button" value="Add Category" onclick="redirectAddItems('addCategory')">
         <?php
             date_default_timezone_set("Asia/Calcutta");
             ini_set("display_errors", 1);
@@ -34,7 +35,7 @@
             $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL");
             $stmt->execute();
             $result = $stmt->get_result();
-            $output.='<input type="button" value="Add Sub-Category">';
+            $output.='<input type="button" value="Add Sub-Category"  onclick="redirectAddItems("addSubCategory")>';
             $output.="<table border='1' cellpadding='5px'>
                 <tr>
                     <th>Sub-Category Name</th>
@@ -58,7 +59,7 @@
             $stmt=$conn->prepare("SELECT * FROM product");
             $stmt->execute();
             $result=$stmt->get_result();
-            $output.='<input type="button" value="Add Product">';
+            $output.='<input type="button" value="Add Product"  onclick="redirectAddItems("addProduct")>';
             $output.="<table border='1' cellpadding='5px'>
                 <tr>
                     <th>Product Name</th>
