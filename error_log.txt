@@ -1,2 +1,60 @@
-[12-Feb-2021 16:48:49 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'akash'@'localhost' (using password: YES) in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 7
-[12-Feb-2021 16:51:02 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'akash'@'localhost' (using password: YES) in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 7
+[12-Feb-2021 16:48:49 Asia/Calcutta] PHP Warning:  mysqli::__constduct(): (HY000/1045): Access denied for user 'akash'@'localhost' (using password: YES) in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 7
+[12-Feb-2021 16:51:02 Asia/Calcutta] PHP Warning:  mysqli::__constduct(): (HY000/1045): Access denied for user 'akash'@'localhost' (using password: YES) in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 7
+[12-Feb-2021 17:03:25 Asia/Calcutta] PHP Warning:  mysqli::__constduct(): (HY000/1049): Unknown database 'ecommerce_websit' in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 7
+[12-Feb-2021 19:34:53 Asia/Calcutta] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: stding + stding in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:26
+Stack tdace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 26
+[12-Feb-2021 22:36:50 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:18
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 18
+[12-Feb-2021 23:14:53 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:45
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 45
+[12-Feb-2021 23:40:33 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:41:32 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:43:26 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function get_result() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:72
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 72
+[12-Feb-2021 23:44:06 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:44:36 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:45:08 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:45:13 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:45:36 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:46:56 Asia/Calcutta] PHP Warning:  Undefined array key "parent_id" in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 70
+[12-Feb-2021 23:46:56 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:48:22 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 71
+[12-Feb-2021 23:50:22 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php:72
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 72
