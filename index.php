@@ -35,7 +35,7 @@
             $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL");
             $stmt->execute();
             $result = $stmt->get_result();
-            $output.='<input type="button" value="Add Sub-Category"  onclick="redirectAddItems("addSubCategory")>';
+            $output.="<input type='button' value='Add Sub-Category'  onclick=redirectAddItems('addSubCategory')>";
             $output.="<table border='1' cellpadding='5px'>
                 <tr>
                     <th>Sub-Category Name</th>
@@ -59,13 +59,14 @@
             $stmt=$conn->prepare("SELECT * FROM product");
             $stmt->execute();
             $result=$stmt->get_result();
-            $output.='<input type="button" value="Add Product"  onclick="redirectAddItems("addProduct")>';
+            $output.="<input type='button' value='Add Product'  onclick=redirectAddItems('addProduct')>";
             $output.="<table border='1' cellpadding='5px'>
                 <tr>
                     <th>Product Name</th>
                     <th>Category</th>
                     <th>Price</th>
                     <th>Image</th>
+                    <th>Action</th>
                 </tr>";
                 while($row=$result->fetch_assoc()){
                     $stmt1 = $conn->prepare("SELECT category_name FROM category WHERE id=(SELECT parent_id FROM category WHERE code='".$row["code"]."')");
@@ -75,7 +76,8 @@
                     $output.="<tr><td>".$row['prod_name']."</td>
                     <td>".$row1['category_name']."</td>
                     <td>".$row['price']."</td>
-                    <td><img src=".$row['image']." alt=".$row["code"]." width='100' height='100' /></td></tr>";
+                    <td><img src=".$row['image']." alt=".$row["code"]." width='100' height='100' /></td>
+                    <td><input type='button' value='EDIT' style='margin-right:5px'><input type='button' value='DELETE'></td></tr>";
                 }
 
             echo $output;

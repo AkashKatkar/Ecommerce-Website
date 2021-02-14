@@ -58,3 +58,100 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\Ecommerce Website\OnlineShopping.php on line 72
+[14-Feb-2021 01:09:50 Asia/Calcutta] PHP Warning:  Undefined array key "category_name" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[14-Feb-2021 01:09:50 Asia/Calcutta] PHP Warning:  Undefined array key "category_code" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 12
+[14-Feb-2021 01:09:55 Asia/Calcutta] PHP Warning:  Undefined array key "category_name" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[14-Feb-2021 01:09:55 Asia/Calcutta] PHP Warning:  Undefined array key "category_code" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 12
+[14-Feb-2021 13:41:07 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\addItems.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 13:41:56 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\addItems.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 13:59:05 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\addItems.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 14:01:27 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\addItems.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 14:05:52 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\addItems.php:15
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 15
+[14-Feb-2021 23:28:04 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 23:28:04 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in C:\xampp\htdocs\Ecommerce Website\addItems.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 23:28:16 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 23:28:16 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in C:\xampp\htdocs\Ecommerce Website\addItems.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 23:29:21 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\addItems.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 14
+[14-Feb-2021 23:29:52 Asia/Calcutta] PHP Warning:  Undefined array key "category" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 21
+[14-Feb-2021 23:31:45 Asia/Calcutta] PHP Warning:  Undefined array key "count(*)" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 21
+[14-Feb-2021 23:34:40 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::mysqli_num_rows() in C:\xampp\htdocs\Ecommerce Website\addItems.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 16
+[14-Feb-2021 23:41:18 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #2 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:19
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 19
+[14-Feb-2021 23:41:32 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #2 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:19
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 19
+[15-Feb-2021 00:34:08 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli::execute() in C:\xampp\htdocs\Ecommerce Website\addItems.php:15
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 15
+[15-Feb-2021 01:50:58 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 01:50:58 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 24
+[15-Feb-2021 02:06:15 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:40
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(40): mysqli_stmt->bind_param('9', '', '', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 40
+[15-Feb-2021 02:06:16 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:40
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(40): mysqli_stmt->bind_param('9', '', '', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 40
+[15-Feb-2021 02:06:16 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:40
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(40): mysqli_stmt->bind_param('9', '', '', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 40
+[15-Feb-2021 02:06:17 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:40
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(40): mysqli_stmt->bind_param('9', '', '', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 40
+[15-Feb-2021 02:06:17 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:40
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(40): mysqli_stmt->bind_param('9', '', '', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 40
+[15-Feb-2021 02:06:21 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:40
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(40): mysqli_stmt->bind_param('9', '', '', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 40
+[15-Feb-2021 02:07:24 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 56
+[15-Feb-2021 02:09:12 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 53
+[15-Feb-2021 02:30:00 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
+[15-Feb-2021 02:32:07 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
+[15-Feb-2021 02:32:27 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
+[15-Feb-2021 02:32:40 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
+[15-Feb-2021 02:34:51 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
+[15-Feb-2021 02:34:59 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
+[15-Feb-2021 02:36:00 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
