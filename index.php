@@ -1,89 +1,58 @@
+<?php
+    date_default_timezone_set("Asia/Calcutta");
+    ini_set("display_errors", 1);
+    ini_set("log_errors", 1);
+    ini_set("error_log",'error_log.txt');
+
+    $conn = new mysqli("localhost","root","", "ecommerce_website");
+    if ($conn->error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    if(!empty(extract($_POST))){
+        if($_POST["func"] == "deleteCategory"){
+            if($_POST["source"] == "category"){
+                $stmt = $conn->prepare("DELETE FROM category WHERE code=?");
+            }else if($_POST["source"] == "subcategory"){
+                $stmt = $conn->prepare("DELETE FROM category WHERE code=?");
+            }else if($_POST["source"] == "product"){
+                $stmt = $conn->prepare("DELETE FROM product WHERE id=?");
+            }
+            $stmt->bind_param("s", $_POST["code"]);
+            if($stmt->execute()){
+                $return_data["ack"] = "yes";
+            }else{
+                $return_data["ack"] = "no";
+            }
+        }else if($_POST["func"] == "editCancel"){
+            if($_POST["source"] == "category"){
+                $stmt = $conn->prepare("UPDATE category SET category_name=?, code=? WHERE code=?");
+                $stmt->bind_param("sss", $_POST["name"], $_POST["code"], $_POST["oldCode"]);
+            }else if($_POST["source"] == "subcategory"){
+                $stmt = $conn->prepare("UPDATE category SET category_name=?, code=?, parent_id=(SELECT id FROM category WHERE category_name=?) WHERE code=?");
+                $stmt->bind_param("ssss", $_POST["name"], $_POST["code"], $_POST["category"], $_POST["oldCode"]);
+            }else{
+                $stmt = $conn->prepare("UPDATE product SET prod_name=?, code=(SELECT code FROM category WHERE category_name=?), price=? WHERE id=?");
+                $stmt->bind_param("ssis", $_POST["name"], $_POST["category"], $_POST["price"], $_POST["oldCode"]);
+            }
+            if($stmt->execute()){
+                $return_data["ack"] = "yes";
+            }else{
+                $return_data["ack"] = "no";
+            }
+        }
+        echo json_encode($return_data);
+        exit();
+    }
+?>
 <html>
     <head>
         <title>Ecommerce Website</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="js/index.js"></script>
+        <link href="css/index.css" rel="stylesheet"/>
     </head>
     <body>
-        <input type="button" value="Add Category" onclick="redirectAddItems('addCategory')">
-        <?php
-            date_default_timezone_set("Asia/Calcutta");
-            ini_set("display_errors", 1);
-            ini_set("log_errors", 1);
-            ini_set("error_log",'error_log.txt');
-
-            $conn = new mysqli("localhost","root","", "ecommerce_website");
-            if ($conn->error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL");
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $output="<table border='1' cellpadding='5px'>
-                        <tr>
-                            <th>Category Name</th>
-                            <th>Code</th>
-                            <th>Action</th>
-                        </tr>";
-                            while($row = $result->fetch_assoc()){
-                                $output.="<tr><td>".$row['category_name']."</td>
-                                <td>".$row['code']."</td>
-                                <td><input type='button' value='EDIT' style='margin-right:5px'><input type='button' value='DELETE'></td></tr>";
-                            }
-            $output.="</table><br/>";
-
-            $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL");
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $output.="<input type='button' value='Add Sub-Category'  onclick=redirectAddItems('addSubCategory')>";
-            $output.="<table border='1' cellpadding='5px'>
-                <tr>
-                    <th>Sub-Category Name</th>
-                    <th>Code</th>
-                    <th>Category</th>
-                    <th>Action</th>
-                </tr>";
-                while($row = $result->fetch_assoc()){
-                    $stmt1 = $conn->prepare("SELECT category_name FROM category WHERE id=".$row['parent_id']);
-                    $stmt1->execute();
-                    $result1 = $stmt1->get_result();
-                    $row1 = $result1->fetch_assoc();
-
-                    $output.="<tr><td>".$row['category_name']."</td>
-                    <td>".$row['code']."</td>
-                    <td>".$row1['category_name']."</td>
-                    <td><input type='button' value='EDIT' style='margin-right:5px'><input type='button' value='DELETE'></td></tr>";
-                }
-            $output.="</table><br/>";
-
-            $stmt=$conn->prepare("SELECT * FROM product");
-            $stmt->execute();
-            $result=$stmt->get_result();
-            $output.="<input type='button' value='Add Product'  onclick=redirectAddItems('addProduct')>";
-            $output.="<table border='1' cellpadding='5px'>
-                <tr>
-                    <th>Product Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>";
-                while($row=$result->fetch_assoc()){
-                    $stmt1 = $conn->prepare("SELECT category_name FROM category WHERE id=(SELECT parent_id FROM category WHERE code='".$row["code"]."')");
-                    $stmt1->execute();
-                    $result1 = $stmt1->get_result();
-                    $row1 = $result1->fetch_assoc();
-                    $output.="<tr><td>".$row['prod_name']."</td>
-                    <td>".$row1['category_name']."</td>
-                    <td>".$row['price']."</td>
-                    <td><img src=".$row['image']." alt=".$row["code"]." width='100' height='100' /></td>
-                    <td><input type='button' value='EDIT' style='margin-right:5px'><input type='button' value='DELETE'></td></tr>";
-                }
-
-            echo $output;
-            $stmt->close();
-            $stmt1->close();
-            $conn->close();
-        ?>
+        <div id="index_tables_onload"></div>
     </body>
 </html>

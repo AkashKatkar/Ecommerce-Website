@@ -3,16 +3,22 @@ $(document).ready(function(){
     if(localStorage.getItem("whichWork") == "Add Category"){
         $(".name").text("Category Name");
         $(".outer_subcategory").remove();
+        $(".outer_price").remove();
+        $(".outer_picture").remove();
+        $(".hidden_tag").remove();
     }else if(localStorage.getItem("whichWork") == "Add Sub-Category"){
         $(".name").text("Sub-Category Name");
         $(".addItemBtn").attr("onclick", "addSubCategory()");
         $setValues = "getCategory";
+        $(".outer_price").remove();
+        $(".outer_picture").remove();
+        $(".hidden_tag").remove();
     }else{
         $(".name").text("Product Name");
         $(".outer_category_code").remove();
-        $(".addItemBtn").attr("onclick", "addProduct()");
+        $(".addItemBtn").attr("onclick", "addProduct()").attr("type", "submit");
         $(".subcategory_name").text("Select Sub-Category");
-        $setValues = "getProduct";
+        $setValues = "getSubCategory";
     }
 
     $.ajax({
@@ -21,7 +27,7 @@ $(document).ready(function(){
         dataType:"json",
         data:{"func": $setValues},
         success:function(resp){
-            for($i=0;$i<=resp["allCategory"].length-1;$i++){
+            for($i=0;$i<resp["allCategory"].length;$i++){
                 $(".subcategory_name").after($("<option></option>").text(resp["allCategory"][$i]).attr("value", resp["allCategory"][$i]));
             }
         }
@@ -63,18 +69,22 @@ function addSubCategory(){
 }
 
 function addProduct(){
-    $.ajax({
-        url:"addItems.php",
-        method:"POST",
-        dataType: "json",
-        data:{"func": "addProduct", "product_name":$(".category_name").val(), "product_code":$(".main_subcategory_name").val(), 
-                        "product_price": $(".product_price").val(), "product_picture": "image/"+$(".product_picture").val().replace("C:\\fakepath\\",'')},
-        success:function(resp){
-            if(resp["ack"] == "yes"){
-                location.href = "http://localhost/Ecommerce%20Website/index.php";
-            }else{
-                alert("Something Went Wrong");
+    $("#add_Category").submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url:"addItems.php",
+            method:"POST",
+            dataType:"json",
+            contentType: false,
+            processData: false,
+            data: new FormData(this),
+            success:function(resp){
+                if(resp["ack"] == "yes"){
+                    location.href = "http://localhost/Ecommerce%20Website/index.php";
+                }else{
+                    alert("Something Went Wrong");
+                }
             }
-        }
+        });
     });
 }

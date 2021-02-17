@@ -21,7 +21,7 @@
                 $i = $i+1;
             }
             $return_data["allCategory"] = $arr;
-        }elseif($_POST["func"] == "getProduct"){
+        }elseif($_POST["func"] == "getSubCategory"){
             $stmt = $conn->prepare("SELECT category_name FROM category WHERE parent_id IS NOT NULL");
             $stmt->execute();
             $result = $stmt->get_result();
@@ -57,11 +57,21 @@
             $stmt->execute();
             $result = $stmt->get_result();
             $row = $result->fetch_assoc();
+
+            $stmt = $conn->prepare("SELECT id FROM product ORDER BY id DESC LIMIT 0, 1");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row1 = $result->fetch_assoc();
+            $row1 = $row1["id"]+1;
             
-            $stmt->prepare("INSERT INTO product VALUES(?,?,?,?)");
-            $stmt->bind_param("ssis", $_POST["product_name"], $row["code"], $_POST["product_price"], $_POST["product_picture"]);
+            $file = $_FILES['img_file'];
+            $file_location = "image/".basename($file["name"]);
+
+            $stmt->prepare("INSERT INTO product VALUES(?,?,?,?,?)");
+            $stmt->bind_param("issis", $row1, $_POST["product_name"], $row["code"], $_POST["product_price"], $file_location);
             if($stmt->execute()){
                 $return_data["ack"] = "yes";
+                move_uploaded_file($file["tmp_name"], "image/" . basename($file["name"]));
             }else{
                 $return_data["ack"] = "no";
             }
@@ -93,36 +103,42 @@
     <body>
         <div class="main_div">
             <h2 class="heading"></h2>
-            <form>
+            <form id="add_Category" method="POST" enctype="multipart/form-data">
                 <label class="name"></label>
                 <div class="main_category_name">
-                    <input type="text" class="category_name"/>
+                    <input type="text" class="category_name" name="product_name"/>
                 </div>
-                <br/><br/>
                 <div class="outer_category_code">
+                <br/>
                     <label class="code">Code</label>
                     <div class="main_category_code">
                         <input type="text" placeholder="Enter Unique Code" class="category_code"/>
                     </div>
                 </div>
-                <br/><br/>
                 <div class="outer_subcategory">
-                    <select class="main_subcategory_name">
+                <br/>
+                    <select class="main_subcategory_name" name="product_code">
                         <option hidden class="subcategory_name">Select Category</option>
                     </select>
                 </div>
-                <br/>
-                <label class="price">Price</label>
-                <div class="main_product_price">
-                    <input type="text" class="product_price"/>
+                <div class="outer_price">
+                    <br/>
+                    <label class="price">Price</label>
+                    <div class="main_product_price">
+                        <input type="text" class="product_price" name="product_price"/>
+                    </div>
                 </div>
-                <br/><br/>
-                <label class="picture">Select Picture</label>
-                <input type="file" class="product_picture"/>
+                <div class="outer_picture">
+                    <br/>
+                    <label class="picture">Select Picture</label>
+                    <input type="file" id="product-img" name="img_file" class="product_picture"/>
+                </div>
                 
                 <div class="main_addItemBtn">
                     <input type="button" value="SUBMIT" class="addItemBtn" onclick="addCategory()"/>
                 </div>
+
+                <input type="hidden" name="func" value="addProduct" class="hidden_tag"/>
             </form>
         </div>
     </body>

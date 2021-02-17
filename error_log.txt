@@ -155,3 +155,230 @@ Stack trace:
 [15-Feb-2021 02:34:51 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
 [15-Feb-2021 02:34:59 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
 [15-Feb-2021 02:36:00 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 59
+[15-Feb-2021 13:23:12 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:23:12 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:25:22 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:25:22 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:26:38 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:26:38 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:27:11 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:27:11 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:27:59 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:27:59 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:28:00 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:28:00 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:28:14 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:28:14 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:28:15 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:28:15 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:28:15 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:28:15 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:28:16 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:28:16 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 13:28:49 Asia/Calcutta] PHP Warning:  Undefined array key "pic_file" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 13:28:49 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 62
+[15-Feb-2021 15:36:24 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 15:36:24 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 15:36:24 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 85
+[15-Feb-2021 15:37:03 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 15:37:03 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 15:37:03 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 85
+[15-Feb-2021 15:37:33 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 15:37:33 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[15-Feb-2021 16:27:18 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:27:18 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:27:18 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:27:18 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:27:27 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:27:27 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:27:36 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:27:36 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 11
+[15-Feb-2021 16:28:11 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:28:11 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:28:44 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:28:44 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:29:29 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:29:29 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:30:30 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:30:30 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:31:11 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:31:11 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:31:12 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[15-Feb-2021 16:31:12 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[16-Feb-2021 01:21:52 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 85
+[16-Feb-2021 01:27:55 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[16-Feb-2021 01:27:55 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[16-Feb-2021 01:27:55 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[16-Feb-2021 01:27:55 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[16-Feb-2021 01:27:55 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 63
+[16-Feb-2021 01:27:55 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 63
+[16-Feb-2021 01:28:24 Asia/Calcutta] PHP Warning:  Undefined variable $_FILE in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[16-Feb-2021 01:28:24 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 61
+[16-Feb-2021 01:48:01 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:64
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 64
+[16-Feb-2021 01:48:24 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:64
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 64
+[16-Feb-2021 01:48:24 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:64
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 64
+[16-Feb-2021 01:57:17 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:65
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 65
+[16-Feb-2021 02:00:38 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #5 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:65
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 65
+[16-Feb-2021 02:30:10 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:10 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:10 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:21 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:21 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:21 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:39 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:39 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 02:30:39 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index.php on line 32
+[16-Feb-2021 03:21:35 Asia/Calcutta] PHP Fatal error:  Uncaught TypeError: mysqli_num_rows(): Argument #1 ($result) must be of type mysqli_result, array given in C:\xampp\htdocs\Ecommerce Website\addItems.php:60
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(60): mysqli_num_rows(Array)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 60
+[16-Feb-2021 03:24:53 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 91
+[16-Feb-2021 13:48:23 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\index.php on line 13
+[16-Feb-2021 13:57:26 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\index.php on line 13
+[16-Feb-2021 13:57:47 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\index.php on line 13
+[16-Feb-2021 17:31:03 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:30
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 30
+[16-Feb-2021 17:32:13 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 44
+[17-Feb-2021 00:58:29 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 48
+[17-Feb-2021 01:00:03 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 48
+[17-Feb-2021 02:12:43 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 48
+[17-Feb-2021 02:12:57 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 48
+[17-Feb-2021 02:20:54 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\index.php on line 40
+[17-Feb-2021 02:20:54 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in C:\xampp\htdocs\Ecommerce Website\index.php:40
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 40
+[17-Feb-2021 12:07:16 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it in C:\xampp\htdocs\Ecommerce Website\index.php on line 7
+[17-Feb-2021 12:07:17 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\index.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 8
+[17-Feb-2021 12:37:00 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\index.php:128
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index.php(128): mysqli_stmt->bind_param('WTC')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 128
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:37:25 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 134
+[17-Feb-2021 12:40:13 Asia/Calcutta] PHP Warning:  Undefined variable $stmt1 in C:\xampp\htdocs\Ecommerce Website\index.php on line 145
+[17-Feb-2021 12:40:13 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\index.php:145
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 145
+[17-Feb-2021 17:04:32 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #2 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:70
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 70
+[17-Feb-2021 17:05:18 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Cannot use a scalar value as an array in C:\xampp\htdocs\Ecommerce Website\addItems.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 71
+[17-Feb-2021 17:05:18 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Cannot use a scalar value as an array in C:\xampp\htdocs\Ecommerce Website\addItems.php:71
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 71
+[17-Feb-2021 22:41:49 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to undefined function alert() in C:\xampp\htdocs\Ecommerce Website\index.php:97
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 97
+[17-Feb-2021 23:16:47 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:102
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 102
+[17-Feb-2021 23:42:08 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 123
+[17-Feb-2021 23:42:08 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:123
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 123
+[17-Feb-2021 23:42:39 Asia/Calcutta] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 14
+[17-Feb-2021 23:42:39 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:14
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(123): category()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 14
+[17-Feb-2021 23:43:33 Asia/Calcutta] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 39
+[17-Feb-2021 23:43:33 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:39
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(125): subCategory()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 39
+[17-Feb-2021 23:43:53 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 125
+[17-Feb-2021 23:43:53 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:125
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 125
+[17-Feb-2021 23:44:23 Asia/Calcutta] PHP Warning:  Undefined variable $output in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 54
+[17-Feb-2021 23:44:23 Asia/Calcutta] PHP Warning:  Undefined variable $output in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 93
+[17-Feb-2021 23:44:23 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 130
+[17-Feb-2021 23:44:23 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:130
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 130
+[17-Feb-2021 23:44:58 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 130
+[17-Feb-2021 23:44:58 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:130
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 130
+[17-Feb-2021 23:46:10 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(15): mysqli->prepare('SELECT * FROM c...')
+#1 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(130): category()
+#2 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 15
+[17-Feb-2021 23:47:09 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 132
+[17-Feb-2021 23:47:09 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:132
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 132
+[17-Feb-2021 23:51:27 Asia/Calcutta] PHP Warning:  Undefined array key "page" in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 89
+[17-Feb-2021 23:51:42 Asia/Calcutta] PHP Warning:  Undefined array key "page" in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 40
+[17-Feb-2021 23:53:08 Asia/Calcutta] PHP Fatal error:  Uncaught TypeError: extract(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:40
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(40): extract(NULL)
+#1 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(133): subCategory()
+#2 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 40
+[18-Feb-2021 00:12:57 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 84
+[18-Feb-2021 00:12:57 Asia/Calcutta] PHP Warning:  Undefined variable $i in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 85
+[18-Feb-2021 00:45:51 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages1 in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 95
+[18-Feb-2021 00:45:51 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages1 in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 97
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 91
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 99
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 91
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 99
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 91
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 99
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 91
+[18-Feb-2021 01:25:57 Asia/Calcutta] PHP Warning:  Undefined variable $total_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 99
+[18-Feb-2021 01:41:01 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:54
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(163): subCategory()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 54
