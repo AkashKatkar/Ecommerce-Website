@@ -13,8 +13,8 @@ function redirectAddItems($whichWork){
 
 function deleteRecord(position, source){
     var code;
-    if(source != "product"){
-        code=document.getElementById(source).rows[position].cells.item(1).innerHTML;
+    if(source == "product"){
+        code=document.getElementById(source).rows[position].cells.item(0).innerHTML;
     }else{
         code=position;
     }
@@ -40,6 +40,9 @@ var previous_cname;
 var editData;
 var deleteData;
 var editRows;
+var navSource = "category";
+var selectRows = 5;
+var page=1;
 
 function getCategory(position, source){
     $.ajax({
@@ -59,6 +62,7 @@ function getCategory(position, source){
     });
 }
 
+var product_image;
 function editRecord(position, source){
     var oldCode=document.getElementById(source).rows[position].cells.item(1).innerHTML;
     if(source == "category"){
@@ -85,6 +89,10 @@ function editRecord(position, source){
         previous_name = $("#product_name"+position).text();
         previous_code = $("#product_price"+position).text();
         previous_cname = $("#product_categ"+position).text();
+        product_image= $("#product_image"+position).attr("src");
+        $('#product_image'+position).replaceWith(function(){
+            return $("<input type='file' name='image_file"+position+"' id='product_image"+position+"'>");
+        });
         $(".paddTag"+position).remove();
         $("<select class='getSubCategory"+position+"'></select>").appendTo("#product_categ"+position);
         getCategory(position, "getSubCategory");
@@ -109,74 +117,117 @@ function editCancel(action, position, source, oldCode){
             $("#product_price"+position).text(previous_code);
             $(".getSubCategory"+position).remove();
             $("<p class='paddTag"+position+"'>"+previous_cname+"</p>").appendTo("#product_categ"+position);
+            $('#product_image'+position).replaceWith(function(){
+                return $("<img id='product_image"+position+"' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
+            });
         }
     }else{
-        var sourceData;
-        var newCategory = $(".getCategory"+position).val();
-        var newSubCategory = $(".getSubCategory"+position).val();
-        if(source=="category"){
-            sourceData = {"func":"editCancel", "source":source, "oldCode":oldCode, "name":$("#category_name"+position).text(), "code":$("#category_code"+position).text()};
-        }else if(source=="subcategory"){
-            sourceData = {"func":"editCancel", "source":source, "oldCode":oldCode, "name":$("#subcategory_name"+position).text(), "code":$("#subcategory_code"+position).text(),
-                            "category":newCategory};
-        }else{
-            sourceData = {"func":"editCancel", "source":source, "oldCode":oldCode, "name":$("#product_name"+position).text(),
-                            "category":newSubCategory, "price":$("#product_price"+position).text()};
-        }
-        $.ajax({
-            url:"index.php",
-            method:"POST",
-            dataType:"json",
-            data:sourceData,
-            success:function(resp){
-                if(resp["ack"] == "yes"){
-                    alert("Data Updated Successfully");
-                    if(source=="subcategory"){
-                        $(".getCategory"+position).remove();
-                        $("<p class='caddTag"+position+"'>"+newCategory+"</p>").appendTo("#subcategory_categ"+position);
-                    }else if(source=="product"){
-                        $(".getSubCategory"+position).remove();
-                        $("<p class='paddTag"+position+"'>"+newSubCategory+"</p>").appendTo("#product_categ"+position);
-                    }
-                }else{
-                    alert("Something Went Wrong");
+        $("#edit_prod"+position).attr("type", "submit");
+        $("#product_form").submit(function(ev) {
+            var sourceData;
+            var newCategory = $(".getCategory"+position).val();
+            var newSubCategory = $(".getSubCategory"+position).val();
+            if(source=="category"){
+                sourceData = {"func":"editCancel", "source":source, "oldCode":oldCode, "name":$("#category_name"+position).text(), "code":$("#category_code"+position).text()};
+            }else if(source=="subcategory"){
+                sourceData = {"func":"editCancel", "source":source, "oldCode":oldCode, "name":$("#subcategory_name"+position).text(), "code":$("#subcategory_code"+position).text(),
+                                "category":newCategory};
+            }else{
+                if($("#product_image"+position).val() != null){
+                    product_image= ($("#product_image"+position).val()).replace("C:\\fakepath\\", "images/");
                 }
+                ev.preventDefault();
+                var formData = new FormData(this);
+                formData.append("func", "editCancel");
+                formData.append("source", source);
+                formData.append("oldCode", oldCode);
+                formData.append("name", $("#product_name"+position).text());
+                formData.append("category", newSubCategory);
+                formData.append("position", position);
+                formData.append("price", $("#product_price"+position).text());
+                sourceData = formData;
             }
+
+            $.ajax({
+                url:"index.php",
+                method:"POST",
+                dataType:"json",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data:sourceData,
+                success:function(resp){
+                    if(resp["ack"] == "yes"){
+                        alert("Data Updated Successfully");
+                        if(source=="subcategory"){
+                            $(".getCategory"+position).remove();
+                            $("<p class='caddTag"+position+"'>"+newCategory+"</p>").appendTo("#subcategory_categ"+position);
+                        }else if(source=="product"){
+                            $("#edit_prod"+position).attr("type", "button");
+                            $(".getSubCategory"+position).remove();
+                            $("<p class='paddTag"+position+"'>"+newSubCategory+"</p>").appendTo("#product_categ"+position);
+                            $('#product_image'+position).replaceWith(function(){
+                                return $("<img id='product_image"+position+"' name='abc' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
+                            });
+                        }
+                        $(editData+position).attr("value", "EDIT").attr("onclick", "editRecord("+position+",'"+source+"')");
+                        $(deleteData+position).attr("value", "DELETE").attr("onclick", "deleteRecord("+position+",'"+source+"')");
+                        $(editRows+position).removeAttr("contenteditable");
+                    }else{
+                        alert("Something Went Wrong");
+                    }
+                }
+            });
         });
     }
-    $(editData+position).attr("value", "EDIT").attr("onclick", "editRecord("+position+",'"+source+"')");
-    $(deleteData+position).attr("value", "DELETE").attr("onclick", "deleteRecord("+position+",'"+source+"')");
-    $(editRows+position).removeAttr("contenteditable");
 }
 
-var page;
-var row;
-function changeCategoryPage(page){
+function changePage(page){
     this.page = page;
-    load_pagination();
+    load_pagination(navSource);
 }
 
-function load_pagination()
+function load_pagination(source)
 {
     $.ajax({
         url:"index_pagination.php",
         method:"post",
-        data:{"page":page, "showRows":$(".showRows").val()},
+        data:{"page":page, "showRows":selectRows, "source": source},
         success:function(resp){
             $("#index_tables_onload").html(resp);
-            setTimeout(function(){
-                $(".showRows"+row).attr("selected", "true");
-            },50);
         }
     });
 }
 
-function showRows(page){
-    this.page = page;
-    row = $(".showRows").val();
-    load_pagination();
-    setTimeout(function(){
-        $(".showRows"+row).attr("selected", "true");
-    },50);
+function showRows(){
+    load_pagination(navSource);
 }
-load_pagination();
+
+function which_nav(navSource){
+    $(".inactive_nav").removeClass("active");
+    load_pagination(navSource);
+    if(navSource == "category"){
+        $(".nav1").addClass("active");
+        $(".card-header").text("Category");
+        $(".addData button").attr("onclick", "redirectAddItems('addCategory')").text("Add Category");
+    }else if(navSource == "subcategory"){
+        $(".nav2").addClass("active");
+        $(".card-header").text("Sub-Category");
+        $(".addData button").attr("onclick", "redirectAddItems('addSubCategory')").text("Add SubCategory");
+    }else{
+        $(".nav3").addClass("active");
+        $(".card-header").text("Product");
+        $(".addData button").attr("onclick", "redirectAddItems('addProduct')").text("Add Product");
+    }
+    this.navSource = navSource;
+}
+
+$(document).ready(function(){
+    $(".dropdown-item").on("click", function(event){
+        selectRows = $(this).text();
+        showRows();
+        $(".dropdown .dropdown-toggle").text(selectRows);
+    });
+});
+
+load_pagination('category');

@@ -65,13 +65,13 @@
             $row1 = $row1["id"]+1;
             
             $file = $_FILES['img_file'];
-            $file_location = "image/".basename($file["name"]);
+            $file_location = "images/".basename($file["name"]);
 
             $stmt->prepare("INSERT INTO product VALUES(?,?,?,?,?)");
             $stmt->bind_param("issis", $row1, $_POST["product_name"], $row["code"], $_POST["product_price"], $file_location);
             if($stmt->execute()){
                 $return_data["ack"] = "yes";
-                move_uploaded_file($file["tmp_name"], "image/" . basename($file["name"]));
+                move_uploaded_file($file["tmp_name"], "images/" . basename($file["name"]));
             }else{
                 $return_data["ack"] = "no";
             }
