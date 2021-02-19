@@ -1,4 +1,3 @@
-<!doctype html>
 <?php
     date_default_timezone_set("Asia/Calcutta");
     ini_set("display_errors", 1);
@@ -10,14 +9,48 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
+	function inactiveData($source){
+		global $conn;
+		global $row;
+		$stmt1 = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
+		if($source == 'category'){
+			$stmt1->bind_param("s", $row["code"]);
+		}else{
+			$stmt1->bind_param("s", $_POST["code"]);
+		}
+		$stmt1->execute();
+
+		$stmt1 = $conn->prepare("SELECT id FROM product WHERE code=?");
+		if($source == 'category'){
+			$stmt1->bind_param("s", $row["code"]);
+		}else{
+			$stmt1->bind_param("s", $_POST["code"]);
+		}
+		$stmt1->execute();
+		$result1 = $stmt1->get_result();
+		while($row1 = $result1->fetch_assoc()){
+			$stmt1 = $conn->prepare("UPDATE product SET status='inactive' WHERE id=?");
+			$stmt1->bind_param("i", $row1["id"]);
+			$stmt1->execute();
+		}
+	}
+	
     if(!empty(extract($_POST))){
-        if($_POST["func"] == "deleteCategory"){
+        if($_POST["func"] == "deleteItem"){
             if($_POST["source"] == "category"){
-                $stmt = $conn->prepare("DELETE FROM category WHERE code=?");
+                $stmt = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
+				$stmt1 = $conn->prepare("SELECT code FROM category WHERE parent_id=(SELECT id from category WHERE code=?);");
+				$stmt1->bind_param("s", $_POST["code"]);
+				$stmt1->execute();
+				$result = $stmt1->get_result();
+				while($row = $result->fetch_assoc()){
+					inactiveData('category');
+				}
             }else if($_POST["source"] == "subcategory"){
-                $stmt = $conn->prepare("DELETE FROM category WHERE code=?");
+                $stmt = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
+				inactiveData('subcategory');
             }else if($_POST["source"] == "product"){
-                $stmt = $conn->prepare("DELETE FROM product WHERE id=?");
+                $stmt = $conn->prepare("UPDATE product SET status='inactive' WHERE id=?");
             }
             $stmt->bind_param("s", $_POST["code"]);
             if($stmt->execute()){
@@ -34,13 +67,16 @@
                 $stmt->bind_param("ssss", $_POST["name"], $_POST["code"], $_POST["category"], $_POST["oldCode"]);
             }else{
                 $file = $_FILES["image_file".$_POST["position"]];
-                $file_name = "images/".basename($file["name"]);
+				if(basename($file["name"]) != NULL){
+					$file_name = "images/".basename($file["name"]);
+					move_uploaded_file($file["tmp_name"], "images/" . basename($file["name"]));
+				}
+                $file_name = $_POST["image"];
                 $stmt = $conn->prepare("UPDATE product SET prod_name=?, code=(SELECT code FROM category WHERE category_name=?), price=?, product_image=? WHERE id=?");
                 $stmt->bind_param("ssiss", $_POST["name"], $_POST["category"], $_POST["price"], $file_name, $_POST["oldCode"]);
             }
             if($stmt->execute()){
                 $return_data["ack"] = "yes";
-                move_uploaded_file($file["tmp_name"], "images/" . basename($file["name"]));
             }else{
                 $return_data["ack"] = "no";
             }
@@ -97,7 +133,7 @@
 					<div class="card-header" style='text-align: center;font-size:25px; padding: 3px;'>Category</div>
 					
 					<div class="card-body">
-						<div class="dropdown" style="margin-bottom: 30px;">
+						<div class="dropdown" style="margin-bottom: 30px;width: 100%;">
 							<button type="button" class="btn btn-info dropdown-toggle dropdown" style="width: 60px;height: 45px;padding-right: 25px;" data-toggle="dropdown">5</button>
 							<div class="dropdown-menu">
 								<a class="dropdown-item showRows5">5</a>
@@ -110,9 +146,9 @@
 								<button type="button" class="btn btn-info" style="height: 45px;" onclick="redirectAddItems('addCategory')">Add Category</button>
 							</div>
 						</div>
-
 						<div id="index_tables_onload"></div>
-
+						
+						<!-- <button class="btn"><i class="fa fa-home"></i></button> -->
 					</div> 
 				</div>
 			</div>

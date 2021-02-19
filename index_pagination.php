@@ -16,25 +16,28 @@
         $page = 1;
         $showRows = 1;
     }
+    $total_pages;
 
     function category(){
         global $page;
         global $showRows;
         global $conn;
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL");
+        global $total_pages;
+        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive'");
         $stmt->execute();
         $result = $stmt->get_result();
         $total_subcategory = mysqli_num_rows($result);
-        $total_subcategory_pages = ceil($total_subcategory / $showRows);
+        $total_pages= ceil($total_subcategory / $showRows);
         $start = $showRows*($page-1);
 
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL LIMIT $start,$showRows");
+        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive' LIMIT $start,$showRows");
         $stmt->execute();
         $result = $stmt->get_result();
         $total_subcategory = mysqli_num_rows($result);
         $j=1;
+        $num=$showRows*($page-1)+1;
         $source = '"category"';
-        $output="<table class='table text-center' id='category'>
+        $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='category'>
                     <thead class='thead-dark'>
                         <tr>
                             <th>#</th>
@@ -45,14 +48,15 @@
                     </thead><tbody>";
                         while($row = $result->fetch_assoc()){
                             $output.="<tr>
-                            <th>$j</th>
+                            <th>$num</th>
                             <td id='category_name".$j."' class='cate_editRows".$j."'>".$row['category_name']."</td>
                             <td id='category_code".$j."' class='cate_editRows".$j."'>".$row['code']."</td>
                             <td><input type='button' value='EDIT' style='margin-right:5px' id='edit_categ".$j."' onclick='editRecord($j, $source)'>
                             <input type='button' value='DELETE' id='delete_categ".$j."' onclick='deleteRecord($j, $source)'></td></tr>";
                             $j++;
+                            $num++;
                         }
-        $output.="</tbody></table><br/>";
+        $output.="</tbody></table></form>";
         echo $output;
         $stmt->close();
     }
@@ -61,20 +65,22 @@
         global $page;
         global $showRows;
         global $conn;
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL");
+        global $total_pages;
+        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive'");
         $stmt->execute();
         $result = $stmt->get_result();
         $total_subcategory = mysqli_num_rows($result);
-        $total_subcategory_pages = ceil($total_subcategory / $showRows);
+        $total_pages = ceil($total_subcategory / $showRows);
         $start = $showRows*($page-1);
 
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL LIMIT $start,$showRows");
+        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive' LIMIT $start,$showRows");
         $stmt->execute();
         $result = $stmt->get_result();
         $total_subcategory = mysqli_num_rows($result);
         $j=1;
+        $num=$showRows*($page-1)+1;
         $source = '"subcategory"';
-        $output="<table class='table text-center' id='subcategory'>
+        $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='subcategory'>
             <thead class='thead-dark'>
                 <tr>
                     <th>#</th>
@@ -92,15 +98,16 @@
                 $row1 = $result1->fetch_assoc();
 
                 $output.="<tr>
-                <th>$j</th>
+                <th>$num</th>
                 <td id='subcategory_name".$j."' class='subcate_editRows".$j."'>".$row['category_name']."</td>
                 <td id='subcategory_code".$j."' class='subcate_editRows".$j."'>".$row['code']."</td>
                 <td id='subcategory_categ".$j."'><p class='caddTag".$j."'>".$row1['category_name']."</p></td>
                 <td><input type='button' value='EDIT' style='margin-right:5px' id='edit_subcateg".$j."' onclick='editRecord($j, $source)'>
                 <input type='button' value='DELETE' id='delete_subcateg".$j."' onclick='deleteRecord($j, $source)'></td></tr>";
                 $j++;
+                $num++;
             }
-            $output.="</tbody></table>";
+            $output.="</tbody></table></form>";
 
         echo $output;
         $stmt->close();
@@ -110,20 +117,22 @@
         global $page;
         global $showRows;
         global $conn;
-        $stmt=$conn->prepare("SELECT * FROM product");
+        global $total_pages;
+        $stmt=$conn->prepare("SELECT * FROM product WHERE status<>'inactive'");
         $stmt->execute();
         $result=$stmt->get_result();
         $total_subcategory = mysqli_num_rows($result);
-        $total_subcategory_pages = ceil($total_subcategory / $showRows);
+        $total_pages = ceil($total_subcategory / $showRows);
         $start = $showRows*($page-1);
 
-        $stmt = $conn->prepare("SELECT * FROM product LIMIT $start,$showRows");
+        $stmt = $conn->prepare("SELECT * FROM product WHERE status<>'inactive' LIMIT $start,$showRows");
         $stmt->execute();
         $result = $stmt->get_result();
         $total_subcategory = mysqli_num_rows($result);
         $j=1;
+        $num=$showRows*($page-1)+1;
         $source = '"product"';
-        $output="<form id='product_form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='product'>
+        $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='product'>
             <thead class='thead-dark'>
                 <tr>
                     <th>#</th>
@@ -143,7 +152,7 @@
                 $result1 = $stmt->get_result();
                 $row1 = $result1->fetch_assoc();
                 $output.="<tr>
-                <th>$j</th>
+                <th>$num</th>
                 <td>".$row['id']."</td>
                 <td id='product_name".$j."' class='prod_editRows".$j."'>".$row['prod_name']."</td>
                 <td id='product_categ".$j."'><p class='paddTag".$j."'>".$row1['category_name']."</p></td>
@@ -152,6 +161,7 @@
                 <td><input type='button' value='EDIT' style='margin-right:5px' id='edit_prod".$j."' onclick='editRecord($j, $source)'>
                 <input type='button' value='DELETE' id='delete_prod".$j."' onclick='deleteRecord($j, $source)'></td></tr>";
                 $j++;
+                $num++;
                 $stmt->close();
             }
         $output.="</tbody></table></form>";
@@ -174,18 +184,17 @@
         echo '<script>$(".firstPrev").addClass("disabled");</script>';
     }
 
-    global $total_subcategory_pages;
     $page1 = $page2 = $page;
     for($i=$page1-1;$i<=$page1+1;$i++){
-        if($page2 == $total_subcategory_pages){
+        if($page2 == $total_pages){
             $i = $page - 2;
             $page2 = -1;
-            if($total_subcategory_pages <= 1){
+            if($total_pages <= 1){
                 $i = $page-1;
             }
         }
 
-        if($i<=$total_subcategory_pages)
+        if($i<=$total_pages)
         {
             if($i!=0){
                 $output.="<li class='page-item'><a class='page-link' id=".$i." href='#' onclick=changePage($i)>$i</a></li>";
@@ -198,8 +207,8 @@
     
     $next = $page+1;
     $output.="<li class='page-item nextLast'><a class='page-link' id='next' href='#' onclick=changePage(".$next.")>Next</a></li>";
-    $output.="<li class='page-item nextLast'><a class='page-link' id='last' href='#' onclick=changePage(".$total_subcategory_pages.")>Last</a></li>";
-    if($page==$total_subcategory_pages){
+    $output.="<li class='page-item nextLast'><a class='page-link' id='last' href='#' onclick=changePage(".$total_pages.")>Last</a></li>";
+    if($page==$total_pages){
         echo '<script>$(".nextLast").addClass("disabled");</script>';
     }
     echo $output;

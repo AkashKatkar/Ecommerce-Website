@@ -11,29 +11,6 @@ function redirectAddItems($whichWork){
     }
 }
 
-function deleteRecord(position, source){
-    var code;
-    if(source == "product"){
-        code=document.getElementById(source).rows[position].cells.item(0).innerHTML;
-    }else{
-        code=position;
-    }
-    $.ajax({
-        url:"index.php",
-        method:"POST",
-        dataType: "json",
-        data: {"func": "deleteCategory", "code": code, "source": source},
-        success:function(resp){
-            if(resp["ack"] == "yes"){
-                location.reload();
-                alert("Successfully Record Deleted");
-            }else{
-                alert("Something Went Wrong");
-            }
-        }
-    });
-}
-
 var previous_name;
 var previous_code
 var previous_cname;
@@ -43,6 +20,29 @@ var editRows;
 var navSource = "category";
 var selectRows = 5;
 var page=1;
+
+function deleteRecord(position, source){
+    var code;
+    if(source != "product"){
+        code=document.getElementById(source).rows[position].cells.item(2).innerHTML;
+    }else{
+        code=document.getElementById(source).rows[position].cells.item(1).innerHTML;;
+    }
+    $.ajax({
+        url:"index.php",
+        method:"POST",
+        dataType: "json",
+        data: {"func": "deleteItem", "code": code, "source": source},
+        success:function(resp){
+            if(resp["ack"] == "yes"){
+                load_pagination(navSource)
+                alert("Successfully Record Deleted");
+            }else{
+                alert("Something Went Wrong");
+            }
+        }
+    });
+}
 
 function getCategory(position, source){
     $.ajax({
@@ -64,7 +64,7 @@ function getCategory(position, source){
 
 var product_image;
 function editRecord(position, source){
-    var oldCode=document.getElementById(source).rows[position].cells.item(1).innerHTML;
+    var oldCode=document.getElementById(source).rows[position].cells.item(2).innerHTML;
     if(source == "category"){
         editData = "#edit_categ";
         deleteData = "#delete_categ";
@@ -85,7 +85,7 @@ function editRecord(position, source){
         editData = "#edit_prod";
         deleteData = "#delete_prod";
         editRows = ".prod_editRows";
-        oldCode=document.getElementById("product").rows[position].cells.item(0).innerHTML;
+        oldCode=document.getElementById("product").rows[position].cells.item(1).innerHTML;
         previous_name = $("#product_name"+position).text();
         previous_code = $("#product_price"+position).text();
         previous_cname = $("#product_categ"+position).text();
@@ -122,30 +122,32 @@ function editCancel(action, position, source, oldCode){
             });
         }
     }else{
-        $("#edit_prod"+position).attr("type", "submit");
-        $("#product_form").submit(function(ev) {
+        $(editData+position).attr("type", "submit");
+        $("#form").one("submit" ,function(ev) {
+            ev.preventDefault();
+            var formData = new FormData(this);
+            formData.append("func", "editCancel");
+            formData.append("source", source);
+            formData.append("oldCode", oldCode);
             var sourceData;
             var newCategory = $(".getCategory"+position).val();
             var newSubCategory = $(".getSubCategory"+position).val();
             if(source=="category"){
-                sourceData = {"func":"editCancel", "source":source, "oldCode":oldCode, "name":$("#category_name"+position).text(), "code":$("#category_code"+position).text()};
+                formData.append("name", $("#category_name"+position).text());
+                formData.append("code", $("#category_code"+position).text());
             }else if(source=="subcategory"){
-                sourceData = {"func":"editCancel", "source":source, "oldCode":oldCode, "name":$("#subcategory_name"+position).text(), "code":$("#subcategory_code"+position).text(),
-                                "category":newCategory};
+                formData.append("name", $("#subcategory_name"+position).text());
+                formData.append("code", $("#subcategory_code"+position).text());
+                formData.append("category", newCategory);
             }else{
-                if($("#product_image"+position).val() != null){
+                if($("#product_image"+position).val() != ""){
                     product_image= ($("#product_image"+position).val()).replace("C:\\fakepath\\", "images/");
                 }
-                ev.preventDefault();
-                var formData = new FormData(this);
-                formData.append("func", "editCancel");
-                formData.append("source", source);
-                formData.append("oldCode", oldCode);
                 formData.append("name", $("#product_name"+position).text());
                 formData.append("category", newSubCategory);
                 formData.append("position", position);
                 formData.append("price", $("#product_price"+position).text());
-                sourceData = formData;
+                formData.append("image", product_image);
             }
 
             $.ajax({
@@ -155,7 +157,7 @@ function editCancel(action, position, source, oldCode){
                 cache: false,
                 contentType: false,
                 processData: false,
-                data:sourceData,
+                data:formData,
                 success:function(resp){
                     if(resp["ack"] == "yes"){
                         alert("Data Updated Successfully");
@@ -163,16 +165,13 @@ function editCancel(action, position, source, oldCode){
                             $(".getCategory"+position).remove();
                             $("<p class='caddTag"+position+"'>"+newCategory+"</p>").appendTo("#subcategory_categ"+position);
                         }else if(source=="product"){
-                            $("#edit_prod"+position).attr("type", "button");
                             $(".getSubCategory"+position).remove();
                             $("<p class='paddTag"+position+"'>"+newSubCategory+"</p>").appendTo("#product_categ"+position);
                             $('#product_image'+position).replaceWith(function(){
                                 return $("<img id='product_image"+position+"' name='abc' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
                             });
                         }
-                        $(editData+position).attr("value", "EDIT").attr("onclick", "editRecord("+position+",'"+source+"')");
-                        $(deleteData+position).attr("value", "DELETE").attr("onclick", "deleteRecord("+position+",'"+source+"')");
-                        $(editRows+position).removeAttr("contenteditable");
+                        $(editData+position).attr("type", "button");
                     }else{
                         alert("Something Went Wrong");
                     }
@@ -180,6 +179,9 @@ function editCancel(action, position, source, oldCode){
             });
         });
     }
+    $(editData+position).attr("value", "EDIT").attr("onclick", "editRecord("+position+",'"+source+"')");
+    $(deleteData+position).attr("value", "DELETE").attr("onclick", "deleteRecord("+position+",'"+source+"')");
+    $(editRows+position).removeAttr("contenteditable");
 }
 
 function changePage(page){
@@ -199,11 +201,8 @@ function load_pagination(source)
     });
 }
 
-function showRows(){
-    load_pagination(navSource);
-}
-
 function which_nav(navSource){
+    this.page = 1;
     $(".inactive_nav").removeClass("active");
     load_pagination(navSource);
     if(navSource == "category"){
@@ -224,8 +223,9 @@ function which_nav(navSource){
 
 $(document).ready(function(){
     $(".dropdown-item").on("click", function(event){
+        page = 1;
         selectRows = $(this).text();
-        showRows();
+        load_pagination(navSource);
         $(".dropdown .dropdown-toggle").text(selectRows);
     });
 });

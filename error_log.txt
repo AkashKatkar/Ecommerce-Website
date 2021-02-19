@@ -696,3 +696,142 @@ Stack trace:
 [19-Feb-2021 06:25:20 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 200
 [19-Feb-2021 06:25:20 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 213
 [19-Feb-2021 06:25:20 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 214
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 178
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 181
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 189
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 181
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 189
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 181
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 189
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 181
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 189
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 202
+[19-Feb-2021 13:39:10 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory_pages in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 203
+[19-Feb-2021 23:50:44 Asia/Calcutta] PHP Warning:  Undefined variable $file in C:\xampp\htdocs\Ecommerce Website\index.php on line 43
+[19-Feb-2021 23:50:44 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 43
+[19-Feb-2021 23:50:44 Asia/Calcutta] PHP Warning:  Undefined variable $file in C:\xampp\htdocs\Ecommerce Website\index.php on line 43
+[19-Feb-2021 23:50:44 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index.php on line 43
+[20-Feb-2021 01:39:04 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #6 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 48
+[20-Feb-2021 01:39:47 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #6 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 48
+[20-Feb-2021 01:40:34 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #6 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 48
+[20-Feb-2021 01:41:20 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #6 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\addItems.php:48
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 48
+[20-Feb-2021 02:02:21 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:48
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(48): mysqli_stmt->bind_param('issis', 10, 'Acer', 'ACR', 1)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 48
+[20-Feb-2021 02:02:27 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\addItems.php:48
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems.php(48): mysqli_stmt->bind_param('issis', 10, 'Acer', 'ACR', 1)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 48
+[20-Feb-2021 02:18:23 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 20
+[20-Feb-2021 02:18:28 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 20
+[20-Feb-2021 02:19:32 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:20
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 20
+[20-Feb-2021 02:20:52 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:21
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 21
+[20-Feb-2021 02:32:00 Asia/Calcutta] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\Ecommerce Website\index.php on line 23
+[20-Feb-2021 02:32:00 Asia/Calcutta] PHP Fatal error:  Uncaught ValueError: mysqli_stmt::bind_param(): Argument #1 ($types) cannot be empty in C:\xampp\htdocs\Ecommerce Website\index.php:23
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index.php(23): mysqli_stmt->bind_param('')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 23
+[20-Feb-2021 02:32:35 Asia/Calcutta] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\Ecommerce Website\index.php:23
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index.php(23): mysqli_stmt->bind_param('9')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 23
+[20-Feb-2021 02:33:12 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:26
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 26
+[20-Feb-2021 02:48:03 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:26
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 26
+[20-Feb-2021 02:48:26 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:26
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 26
+[20-Feb-2021 02:50:01 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:26
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 26
+[20-Feb-2021 02:51:19 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:26
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 26
+[20-Feb-2021 02:52:04 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 02:54:19 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 68
+[20-Feb-2021 02:55:21 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 02:57:27 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 02:57:52 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 02:59:07 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 03:00:32 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 03:01:35 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 03:04:16 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 67
+[20-Feb-2021 03:16:12 Asia/Calcutta] PHP Warning:  Array to string conversion in C:\xampp\htdocs\Ecommerce Website\index.php on line 56
+[20-Feb-2021 03:16:12 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 68
+[20-Feb-2021 03:17:34 Asia/Calcutta] PHP Warning:  Array to string conversion in C:\xampp\htdocs\Ecommerce Website\index.php on line 56
+[20-Feb-2021 03:17:34 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 68
+[20-Feb-2021 03:18:30 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 68
+[20-Feb-2021 03:19:19 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 70
+[20-Feb-2021 03:19:51 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 70
+[20-Feb-2021 03:26:33 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 69
+[20-Feb-2021 03:30:12 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 69
+[20-Feb-2021 03:31:33 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 69
+[20-Feb-2021 03:33:02 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 79
+[20-Feb-2021 03:33:37 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 79
+[20-Feb-2021 03:35:10 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:42
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 42
+[20-Feb-2021 03:35:27 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:42
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 42
+[20-Feb-2021 03:36:41 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in C:\xampp\htdocs\Ecommerce Website\index.php:42
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 42
+[20-Feb-2021 03:39:28 Asia/Calcutta] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Ecommerce Website\index.php on line 13
+[20-Feb-2021 03:39:28 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\Ecommerce Website\index.php:13
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index.php(36): inactiveData()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index.php on line 13
+[20-Feb-2021 03:40:38 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 75
+[20-Feb-2021 03:41:17 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 75
+[20-Feb-2021 03:42:00 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 76
+[20-Feb-2021 03:47:37 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 84
+[20-Feb-2021 03:54:57 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 84
+[20-Feb-2021 03:57:24 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 84
+[20-Feb-2021 03:58:04 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index.php on line 84
+[20-Feb-2021 04:05:09 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in C:\xampp\htdocs\Ecommerce Website\index_pagination.php:122
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(176): product()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 122

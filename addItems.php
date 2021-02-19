@@ -44,7 +44,7 @@
             $result = $stmt->get_result();
             $row = $result->fetch_assoc();
 
-            $stmt = $conn->prepare("INSERT INTO category VALUES(?,?,?,?)");
+            $stmt = $conn->prepare("INSERT INTO category VALUES(?,?,?,?,'active')");
             $stmt->bind_param("issi", $count, $_POST["category_name"], $_POST["category_code"], $row["id"]);
             if($stmt->execute()){
                 $return_data["ack"] = "yes";
@@ -67,7 +67,7 @@
             $file = $_FILES['img_file'];
             $file_location = "images/".basename($file["name"]);
 
-            $stmt->prepare("INSERT INTO product VALUES(?,?,?,?,?)");
+            $stmt->prepare("INSERT INTO product VALUES(?,?,?,?,?,'active')");
             $stmt->bind_param("issis", $row1, $_POST["product_name"], $row["code"], $_POST["product_price"], $file_location);
             if($stmt->execute()){
                 $return_data["ack"] = "yes";

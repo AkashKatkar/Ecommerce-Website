@@ -1,3 +1,18 @@
+html{
+    scrollbar-width: none;
+    overflow-x: scroll;
+}
+
+body {
+    margin:0;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 .main_box{
     text-align: center;
 }
