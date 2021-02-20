@@ -1,0 +1,4 @@
+#privent user to access our Directions.....
+Options -Indexes
+
+#Deny from all :- prevent website

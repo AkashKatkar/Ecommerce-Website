@@ -853,3 +853,165 @@ Stack trace:
 [20-Feb-2021 23:38:02 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index_ajax.php on line 91
 [20-Feb-2021 23:39:13 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index_ajax.php on line 91
 [20-Feb-2021 23:39:42 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index_ajax.php on line 91
+[21-Feb-2021 02:42:43 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:42:43 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:42:44 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:42:44 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:42:53 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:42:53 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:42:53 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:42:53 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:42:57 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:42:57 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:42:57 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:42:57 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:42:57 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:42:57 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:43:54 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:43:54 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:43:56 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:43:56 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:43:59 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:43:59 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:43:59 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:43:59 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:00 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:00 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:00 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:00 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:00 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:00 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:09 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:09 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:12 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:12 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:19 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:19 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:19 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:19 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:44:21 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:44:21 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:48:15 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:48:16 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:48:26 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:48:26 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:49:30 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:49:30 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:49:32 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:49:32 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:49:36 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:49:36 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:49:55 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:49:56 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:60
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(60): mysqli->prepare('SELECT code FRO...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 60
+[21-Feb-2021 02:50:35 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:50:35 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:63
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(63): mysqli->prepare('SELECT code FRO...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 63
+[21-Feb-2021 02:51:06 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:51:06 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:33
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(33): mysqli->prepare('SELECT category...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 33
+[21-Feb-2021 02:51:07 Asia/Calcutta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'roo'@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 8
+[21-Feb-2021 02:51:07 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli object is already closed in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:63
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(63): mysqli->prepare('SELECT code FRO...')
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 63
+[21-Feb-2021 02:52:43 Asia/Calcutta] PHP Warning:  Undefined variable $hostname_db in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:43 Asia/Calcutta] PHP Warning:  Undefined variable $username_db in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:43 Asia/Calcutta] PHP Warning:  Undefined variable $password_db in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:43 Asia/Calcutta] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:43 Asia/Calcutta] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 40
+[21-Feb-2021 02:52:43 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:40
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 40
+[21-Feb-2021 02:52:46 Asia/Calcutta] PHP Warning:  Undefined variable $hostname_db in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:46 Asia/Calcutta] PHP Warning:  Undefined variable $username_db in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:46 Asia/Calcutta] PHP Warning:  Undefined variable $password_db in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:46 Asia/Calcutta] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 9
+[21-Feb-2021 02:52:46 Asia/Calcutta] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 70
+[21-Feb-2021 02:52:46 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:70
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 70

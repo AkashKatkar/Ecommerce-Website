@@ -73,7 +73,7 @@ function addSubCategory(){
 }
 
 function addProduct(){
-    $("#add_Category").submit(function(e){
+    $("#add_Category").one("submit" ,function(e){
         e.preventDefault();
         $.ajax({
             url:"addItems_ajax.php",
