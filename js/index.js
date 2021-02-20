@@ -29,7 +29,7 @@ function deleteRecord(position, source){
         code=document.getElementById(source).rows[position].cells.item(1).innerHTML;;
     }
     $.ajax({
-        url:"index.php",
+        url:"index_ajax.php",
         method:"POST",
         dataType: "json",
         data: {"func": "deleteItem", "code": code, "source": source},
@@ -46,7 +46,7 @@ function deleteRecord(position, source){
 
 function getCategory(position, source){
     $.ajax({
-        url:"addItems.php",
+        url:"addItems_ajax.php",
         method:"POST",
         dataType:"json",
         data:{"func": source},
@@ -79,7 +79,7 @@ function editRecord(position, source){
         previous_code = $("#subcategory_code"+position).text();
         previous_cname = $("#subcategory_categ"+position).text();
         $(".caddTag"+position).remove();
-        $("<select class='getCategory"+position+"'></select>").appendTo("#subcategory_categ"+position);
+        $("<select class='form-control getCategory"+position+"' style='border:1px solid rgba(0,0,0,0.5);'></select>").appendTo("#subcategory_categ"+position);
         getCategory(position, "getCategory");
     }else{
         editData = "#edit_prod";
@@ -91,15 +91,18 @@ function editRecord(position, source){
         previous_cname = $("#product_categ"+position).text();
         product_image= $("#product_image"+position).attr("src");
         $('#product_image'+position).replaceWith(function(){
-            return $("<input type='file' name='image_file"+position+"' id='product_image"+position+"'>");
+            return $('<div class="file-upload-wrapper fuw'+position+'" data-text="Select your file!"><input type="file" onchange="changeImage('+position+')" name="image_file'+position+'" class="file-upload-field" id="product_image'+position+'"></div>');
+            // return $("<input type='file' name='image_file"+position+"' id='product_image"+position+"'>");
         });
         $(".paddTag"+position).remove();
-        $("<select class='getSubCategory"+position+"'></select>").appendTo("#product_categ"+position);
+        $("<select class='form-control getSubCategory"+position+"' style='border:1px solid rgba(0,0,0,0.5);'></select>").appendTo("#product_categ"+position);
         getCategory(position, "getSubCategory");
     }
     $(editRows+position).attr("contenteditable", "true");
-    $(editData+position).attr("value", "Conform").attr("onclick", "editCancel('edit',"+position+",'"+source+"','"+oldCode+"')");
-    $(deleteData+position).attr("value", "Cancel").attr("onclick", "editCancel('cancel',"+position+",'"+source+"','"+oldCode+"')");
+    $(editData+position).attr("onclick", "editCancel('edit',"+position+",'"+source+"','"+oldCode+"')");
+    $(".btn_j"+position).attr("class", "fa fa-check btn_j"+position);
+    $(".btn_i"+position).attr("class", "fa fa-close btn_i"+position);
+    $(deleteData+position).attr("onclick", "editCancel('cancel',"+position+",'"+source+"','"+oldCode+"')");
 }
 
 function editCancel(action, position, source, oldCode){
@@ -117,7 +120,7 @@ function editCancel(action, position, source, oldCode){
             $("#product_price"+position).text(previous_code);
             $(".getSubCategory"+position).remove();
             $("<p class='paddTag"+position+"'>"+previous_cname+"</p>").appendTo("#product_categ"+position);
-            $('#product_image'+position).replaceWith(function(){
+            $('.fuw'+position).replaceWith(function(){
                 return $("<img id='product_image"+position+"' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
             });
         }
@@ -151,7 +154,7 @@ function editCancel(action, position, source, oldCode){
             }
 
             $.ajax({
-                url:"index.php",
+                url:"index_ajax.php",
                 method:"POST",
                 dataType:"json",
                 cache: false,
@@ -168,7 +171,7 @@ function editCancel(action, position, source, oldCode){
                             $(".getSubCategory"+position).remove();
                             $("<p class='paddTag"+position+"'>"+newSubCategory+"</p>").appendTo("#product_categ"+position);
                             $('#product_image'+position).replaceWith(function(){
-                                return $("<img id='product_image"+position+"' name='abc' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
+                                return $("<img id='product_image"+position+"' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
                             });
                         }
                         $(editData+position).attr("type", "button");
@@ -179,8 +182,10 @@ function editCancel(action, position, source, oldCode){
             });
         });
     }
-    $(editData+position).attr("value", "EDIT").attr("onclick", "editRecord("+position+",'"+source+"')");
-    $(deleteData+position).attr("value", "DELETE").attr("onclick", "deleteRecord("+position+",'"+source+"')");
+    $(editData+position).attr("onclick", "editRecord("+position+",'"+source+"')");
+    $(".btn_j"+position).attr("class", "fa fa-pencil btn_j"+position);
+    $(".btn_i"+position).attr("class", "fa fa-trash btn_i"+position);
+    $(deleteData+position).attr("onclick", "deleteRecord("+position+",'"+source+"')");
     $(editRows+position).removeAttr("contenteditable");
 }
 
@@ -231,3 +236,7 @@ $(document).ready(function(){
 });
 
 load_pagination('category');
+
+function changeImage(position){
+    $("#product_image"+position).parent(".file-upload-wrapper").attr("data-text", $("#product_image"+position).val().replace(/.*(\/|\\)/, '').substring(0, 15)+"...");
+};

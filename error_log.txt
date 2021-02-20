@@ -835,3 +835,21 @@ Stack trace:
 #0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(176): product()
 #1 {main}
   thrown in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 122
+[20-Feb-2021 14:58:35 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[20-Feb-2021 14:58:35 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 24
+[20-Feb-2021 14:58:35 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 35
+[20-Feb-2021 14:58:35 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 54
+[20-Feb-2021 14:59:01 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[20-Feb-2021 14:59:01 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 24
+[20-Feb-2021 14:59:01 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 35
+[20-Feb-2021 14:59:01 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 54
+[20-Feb-2021 14:59:08 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 13
+[20-Feb-2021 14:59:08 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 24
+[20-Feb-2021 14:59:08 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 35
+[20-Feb-2021 14:59:08 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems.php on line 54
+[20-Feb-2021 17:34:07 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 158
+[20-Feb-2021 17:35:28 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 158
+[20-Feb-2021 23:37:57 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index_ajax.php on line 91
+[20-Feb-2021 23:38:02 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index_ajax.php on line 91
+[20-Feb-2021 23:39:13 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index_ajax.php on line 91
+[20-Feb-2021 23:39:42 Asia/Calcutta] PHP Warning:  Undefined variable $return_data in C:\xampp\htdocs\Ecommerce Website\index_ajax.php on line 91

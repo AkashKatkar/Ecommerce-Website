@@ -36,7 +36,6 @@
         $total_subcategory = mysqli_num_rows($result);
         $j=1;
         $num=$showRows*($page-1)+1;
-        $source = '"category"';
         $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='category'>
                     <thead class='thead-dark'>
                         <tr>
@@ -51,8 +50,8 @@
                             <th>$num</th>
                             <td id='category_name".$j."' class='cate_editRows".$j."'>".$row['category_name']."</td>
                             <td id='category_code".$j."' class='cate_editRows".$j."'>".$row['code']."</td>
-                            <td><input type='button' value='EDIT' style='margin-right:5px' id='edit_categ".$j."' onclick='editRecord($j, $source)'>
-                            <input type='button' value='DELETE' id='delete_categ".$j."' onclick='deleteRecord($j, $source)'></td></tr>";
+                            <td><button type='button' class='btn_' style='margin-right:5px' id='edit_categ".$j."' onclick=editRecord($j,'category')><i class='fa fa-pencil btn_j$j'></i></button>
+                            <button type='button' class='btn_' id='delete_categ".$j."' onclick=deleteRecord($j,'category')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
                             $j++;
                             $num++;
                         }
@@ -79,7 +78,6 @@
         $total_subcategory = mysqli_num_rows($result);
         $j=1;
         $num=$showRows*($page-1)+1;
-        $source = '"subcategory"';
         $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='subcategory'>
             <thead class='thead-dark'>
                 <tr>
@@ -102,8 +100,8 @@
                 <td id='subcategory_name".$j."' class='subcate_editRows".$j."'>".$row['category_name']."</td>
                 <td id='subcategory_code".$j."' class='subcate_editRows".$j."'>".$row['code']."</td>
                 <td id='subcategory_categ".$j."'><p class='caddTag".$j."'>".$row1['category_name']."</p></td>
-                <td><input type='button' value='EDIT' style='margin-right:5px' id='edit_subcateg".$j."' onclick='editRecord($j, $source)'>
-                <input type='button' value='DELETE' id='delete_subcateg".$j."' onclick='deleteRecord($j, $source)'></td></tr>";
+                <td><button type='button' class='btn_' style='margin-right:5px' id='edit_subcateg".$j."' onclick=editRecord($j,'subcategory')><i class='fa fa-pencil btn_j$j'></i></button>
+                <button type='button' class='btn_' id='delete_subcateg".$j."' onclick=deleteRecord($j,'subcategory')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
                 $j++;
                 $num++;
             }
@@ -131,7 +129,6 @@
         $total_subcategory = mysqli_num_rows($result);
         $j=1;
         $num=$showRows*($page-1)+1;
-        $source = '"product"';
         $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='product'>
             <thead class='thead-dark'>
                 <tr>
@@ -158,8 +155,8 @@
                 <td id='product_categ".$j."'><p class='paddTag".$j."'>".$row1['category_name']."</p></td>
                 <td id='product_price".$j."' class='prod_editRows".$j."'>".$row['price']."</td>
                 <td><img id='product_image".$j."' src='".$row['product_image']."' alt='".$row["code"]."' width='100' height='100' /></td>
-                <td><input type='button' value='EDIT' style='margin-right:5px' id='edit_prod".$j."' onclick='editRecord($j, $source)'>
-                <input type='button' value='DELETE' id='delete_prod".$j."' onclick='deleteRecord($j, $source)'></td></tr>";
+                <td style='min-width: 104px;'><button type='button' class='btn_' style='margin-right:5px' id='edit_prod".$j."' onclick=editRecord($j,'product')><i class='fa fa-pencil btn_j$j'></i></button>
+                <button type='button' class='btn_' id='delete_prod".$j."' onclick=deleteRecord($j,'product')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
                 $j++;
                 $num++;
                 $stmt->close();
