@@ -1,213 +1,40 @@
 <?php
-    date_default_timezone_set("Asia/Calcutta");
-    ini_set("display_errors", 1);
-    ini_set("log_errors", 1);
-    ini_set("error_log",'error_log.txt');
-
-    $conn = new mysqli("localhost","root","", "ecommerce_website");
-    if ($conn->error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    if(isset($_POST["page"])){
-        $page = $_POST["page"];
-        $showRows = $_POST["showRows"];
-    }else{
-        $page = 1;
-        $showRows = 1;
-    }
-    $total_pages;
-
-    function category(){
-        global $page;
-        global $showRows;
-        global $conn;
-        global $total_pages;
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive'");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $total_subcategory = mysqli_num_rows($result);
-        $total_pages= ceil($total_subcategory / $showRows);
-        $start = $showRows*($page-1);
-
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive' LIMIT $start,$showRows");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $total_subcategory = mysqli_num_rows($result);
-        $j=1;
-        $num=$showRows*($page-1)+1;
-        $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='category'>
-                    <thead class='thead-dark'>
-                        <tr>
-                            <th>#</th>
-                            <th>Category Name</th>
-                            <th>Code</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead><tbody>";
-                        while($row = $result->fetch_assoc()){
-                            $output.="<tr>
-                            <th>$num</th>
-                            <td id='category_name".$j."' class='cate_editRows".$j."'>".$row['category_name']."</td>
-                            <td id='category_code".$j."' class='cate_editRows".$j."'>".$row['code']."</td>
-                            <td><button type='button' class='btn_' style='margin-right:5px' id='edit_categ".$j."' onclick=editRecord($j,'category')><i class='fa fa-pencil btn_j$j'></i></button>
-                            <button type='button' class='btn_' id='delete_categ".$j."' onclick=deleteRecord($j,'category')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
-                            $j++;
-                            $num++;
-                        }
-        $output.="</tbody></table></form>";
-        echo $output;
-        $stmt->close();
-    }
-
-    function subCategory(){
-        global $page;
-        global $showRows;
-        global $conn;
-        global $total_pages;
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive'");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $total_subcategory = mysqli_num_rows($result);
-        $total_pages = ceil($total_subcategory / $showRows);
-        $start = $showRows*($page-1);
-
-        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive' LIMIT $start,$showRows");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $total_subcategory = mysqli_num_rows($result);
-        $j=1;
-        $num=$showRows*($page-1)+1;
-        $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='subcategory'>
-            <thead class='thead-dark'>
-                <tr>
-                    <th>#</th>
-                    <th>Sub-Category Name</th>
-                    <th>Code</th>
-                    <th>Category</th>
-                    <th>Action</th>
-                </tr>
-            </thead><tbody>";
-            while($row = $result->fetch_assoc()){
-                $stmt = $conn->prepare("SELECT category_name FROM category WHERE id=?");
-                $stmt->bind_param("s", $row['parent_id']);
-                $stmt->execute();
-                $result1 = $stmt->get_result();
-                $row1 = $result1->fetch_assoc();
-
-                $output.="<tr>
-                <th>$num</th>
-                <td id='subcategory_name".$j."' class='subcate_editRows".$j."'>".$row['category_name']."</td>
-                <td id='subcategory_code".$j."' class='subcate_editRows".$j."'>".$row['code']."</td>
-                <td id='subcategory_categ".$j."'><p class='caddTag".$j."'>".$row1['category_name']."</p></td>
-                <td><button type='button' class='btn_' style='margin-right:5px' id='edit_subcateg".$j."' onclick=editRecord($j,'subcategory')><i class='fa fa-pencil btn_j$j'></i></button>
-                <button type='button' class='btn_' id='delete_subcateg".$j."' onclick=deleteRecord($j,'subcategory')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
-                $j++;
-                $num++;
-            }
-            $output.="</tbody></table></form>";
-
-        echo $output;
-        $stmt->close();
-    }
-
-    function product(){
-        global $page;
-        global $showRows;
-        global $conn;
-        global $total_pages;
-        $stmt=$conn->prepare("SELECT * FROM product WHERE status<>'inactive'");
-        $stmt->execute();
-        $result=$stmt->get_result();
-        $total_subcategory = mysqli_num_rows($result);
-        $total_pages = ceil($total_subcategory / $showRows);
-        $start = $showRows*($page-1);
-
-        $stmt = $conn->prepare("SELECT * FROM product WHERE status<>'inactive' LIMIT $start,$showRows");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $total_subcategory = mysqli_num_rows($result);
-        $j=1;
-        $num=$showRows*($page-1)+1;
-        $output="<form id='form' method='POST' enctype='multipart/form-data'><table class='table text-center' id='product'>
-            <thead class='thead-dark'>
-                <tr>
-                    <th>#</th>
-                    <th>Product ID</th>
-                    <th>Product Name</th>
-                    <th>Sub-Category</th>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
-            </thead><tbody>";
-            
-            while($row=$result->fetch_assoc()){
-                $stmt = $conn->prepare("SELECT category_name FROM category WHERE code=? order by id");
-                $stmt->bind_param("s",$row["code"]);
-                $stmt->execute();
-                $result1 = $stmt->get_result();
-                $row1 = $result1->fetch_assoc();
-                $output.="<tr>
-                <th>$num</th>
-                <td>".$row['id']."</td>
-                <td id='product_name".$j."' class='prod_editRows".$j."'>".$row['prod_name']."</td>
-                <td id='product_categ".$j."'><p class='paddTag".$j."'>".$row1['category_name']."</p></td>
-                <td id='product_price".$j."' class='prod_editRows".$j."'>".$row['price']."</td>
-                <td><img id='product_image".$j."' src='".$row['product_image']."' alt='".$row["code"]."' width='100' height='100' /></td>
-                <td style='min-width: 104px;'><button type='button' class='btn_' style='margin-right:5px' id='edit_prod".$j."' onclick=editRecord($j,'product')><i class='fa fa-pencil btn_j$j'></i></button>
-                <button type='button' class='btn_' id='delete_prod".$j."' onclick=deleteRecord($j,'product')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
-                $j++;
-                $num++;
-                $stmt->close();
-            }
-        $output.="</tbody></table></form>";
-        echo $output;
-    }
-
-    if($_POST["source"] == "category"){
-        category();
-    }else if($_POST["source"] == "subcategory"){
-        subCategory();
-    }else{
-        product();
-    }
-
-    $output="<nav aria-label='Page navigation example'><ul class='pagination justify-content-center'>";
-    $output.="<li class='page-item firstPrev'><a class='page-link' id='first' href='#' onclick='changePage(1)'>First</a></li>";
-    $prev = $page-1;
-    $output.="<li class='page-item firstPrev'><a class='page-link' id='prev' href='#' onclick=changePage(".$prev.")>Previous</a></li>";
-    if($page==1){
-        echo '<script>$(".firstPrev").addClass("disabled");</script>';
-    }
-
-    $page1 = $page2 = $page;
-    for($i=$page1-1;$i<=$page1+1;$i++){
-        if($page2 == $total_pages){
-            $i = $page - 2;
-            $page2 = -1;
-            if($total_pages <= 1){
-                $i = $page-1;
-            }
+    require ("functions.php");
+    if(!empty(extract($_POST))){
+        if(isset($_POST["page"])){
+            $page = $_POST["page"];
+            $showRows = $_POST["showRows"];
+        }else{
+            $page = 1;
+            $showRows = 1;
         }
 
-        if($i<=$total_pages)
-        {
-            if($i!=0){
-                $output.="<li class='page-item'><a class='page-link' id=".$i." href='#' onclick=changePage($i)>$i</a></li>";
-            }else{
-                $page1 = 2;
+        $pagination = new Pagination();
+        if($_POST["source"] == "category"){
+            $pagination->myQuery("category");
+            if($total_subcategory != 0){
+                $pagination->showCategory();
+            }
+        }else if($_POST["source"] == "subcategory"){
+            $pagination->myQuery("subcategory");
+            global $total_subcategory;
+            if($total_subcategory != 0){
+                $pagination->showSubCategory();
+            }
+        }else{
+            $pagination->myQuery("product");
+            global $total_subcategory;
+            if($total_subcategory != 0){
+                $pagination->showProduct();
             }
         }
+        if($total_subcategory != 0){
+            $pagination->pagination_number();
+        }else{
+            // echo "<script>$('.card-body .dropdown .dropdown').remove();</script>";
+            echo "<p style='text-align:center;font-size:50px;font-weight:bold;font-family:Baloo;color:#ffbf33;'>Please Add Data First</p>";
+        }
+        $stmt->close();
+        $conn->close();
     }
-    echo '<script>$("#"+'.$page.').addClass("selected_box");</script>';
-    
-    $next = $page+1;
-    $output.="<li class='page-item nextLast'><a class='page-link' id='next' href='#' onclick=changePage(".$next.")>Next</a></li>";
-    $output.="<li class='page-item nextLast'><a class='page-link' id='last' href='#' onclick=changePage(".$total_pages.")>Last</a></li>";
-    if($page==$total_pages){
-        echo '<script>$(".nextLast").addClass("disabled");</script>';
-    }
-    echo $output;
-    $conn->close();
 ?>

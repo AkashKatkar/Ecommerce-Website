@@ -3,10 +3,12 @@
         <title>Ecommerce Website</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="referrer" content="none">
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Baloo' rel='stylesheet'>
 		<link rel="stylesheet" href="css/style.css">
         <link href="css/index.css" rel="stylesheet"/>
 
@@ -65,10 +67,7 @@
 				</div>
 			</div>
 		</div>
+
 		<script src="js/main.js"></script>
-		<div class="custom-file">
-    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-  </div>
   	</body>
 </html>

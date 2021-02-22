@@ -11,12 +11,7 @@ function redirectAddItems($whichWork){
     }
 }
 
-var previous_name;
-var previous_code
-var previous_cname;
-var editData;
-var deleteData;
-var editRows;
+var previous_name, previous_code, previous_cname, editData, deleteData, editRows;
 var navSource = "category";
 var selectRows = 5;
 var page=1;
@@ -32,9 +27,12 @@ function deleteRecord(position, source){
         url:"index_ajax.php",
         method:"POST",
         dataType: "json",
-        data: {"func": "deleteItem", "code": code, "source": source},
+        data: {"func": "deleteItem", "code": code, "source": source, "operation": "delete_record"},
         success:function(resp){
             if(resp["ack"] == "yes"){
+                if(Math.ceil(resp["remaining_rows"]/selectRows) < page){
+                    page = page - 1;
+                }
                 load_pagination(navSource)
                 alert("Successfully Record Deleted");
             }else{

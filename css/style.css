@@ -454,9 +454,7 @@ pre {
   margin-left: auto;}
   @media (min-width: 500px) {
     .container {
-      max-width: 720px;
-      min-width: 720px;
-      width: 720px;} }
+      min-width: 820px;} }
   @media (min-width: 768px) {
     .container {
       max-width: 720px; }}

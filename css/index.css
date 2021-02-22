@@ -44,7 +44,7 @@ body {
     position: relative;
     width: 90%;
     height: 60px;
-    min-width: 200px;
+    min-width: 240px;
     margin-bottom: -20px;
   }
   
@@ -55,10 +55,11 @@ body {
     top: 0;
     left: 0;
     background: #fff;
-    padding: 9px 15px;
-    padding-right: 80px;
+    padding: 9px 0px;
+    padding-right: 120px;
     display: block;
     width: calc(100% - 40px);
+    min-width: 240px;
     pointer-events: none;
     z-index: 20;
     height: 40px;
