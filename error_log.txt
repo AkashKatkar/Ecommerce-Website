@@ -1571,3 +1571,94 @@ Stack trace:
 #1 {main}
   thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 271
 [23-Feb-2021 01:57:01 Asia/Calcutta] PHP Warning:  Undefined variable $total_subcategory in C:\xampp\htdocs\Ecommerce Website\index_pagination.php on line 15
+[23-Feb-2021 12:49:59 Asia/Calcutta] PHP Fatal error:  Uncaught TypeError: extract(): Argument #1 ($array) must be of type array, null given in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php:3
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(3): extract(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 3
+[23-Feb-2021 12:50:27 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php on line 3
+[23-Feb-2021 12:51:47 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\functions.php on line 12
+[23-Feb-2021 12:51:47 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:51:47 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:51:49 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\functions.php on line 12
+[23-Feb-2021 12:51:49 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:51:49 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:52:29 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\functions.php on line 12
+[23-Feb-2021 12:52:29 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:52:29 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:52:41 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\functions.php on line 11
+[23-Feb-2021 12:52:41 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 14
+[23-Feb-2021 12:52:41 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:14
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 14
+[23-Feb-2021 12:52:55 Asia/Calcutta] PHP Warning:  Undefined array key "func" in C:\xampp\htdocs\Ecommerce Website\functions.php on line 11
+[23-Feb-2021 12:52:55 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 14
+[23-Feb-2021 12:52:55 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:14
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_pagination.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 14
+[23-Feb-2021 12:55:00 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:55:00 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_ajax.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:55:05 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:55:05 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_ajax.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:55:11 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:55:11 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_ajax.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:55:46 Asia/Calcutta] PHP Warning:  Undefined variable $stmt in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 12:55:46 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function close() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(2): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 13:21:03 Asia/Calcutta] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\Ecommerce Website\functions.php on line 88
+[23-Feb-2021 13:26:01 Asia/Calcutta] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\Ecommerce Website\functions.php on line 88
+[23-Feb-2021 21:18:34 Asia/Calcutta] PHP Warning:  Undefined variable $conn in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 21:18:34 Asia/Calcutta] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\Ecommerce Website\functions.php:15
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\index_ajax.php(5): delete_OR_restore_Item()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 15
+[23-Feb-2021 21:22:18 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #2 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\functions.php:212
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(19): addCategory()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 212
+[23-Feb-2021 21:22:37 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #2 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\functions.php:212
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(19): addCategory()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 212
+[23-Feb-2021 21:22:52 Asia/Calcutta] PHP Fatal error:  Uncaught Error: mysqli_stmt::bind_param(): Argument #2 cannot be passed by reference in C:\xampp\htdocs\Ecommerce Website\functions.php:212
+Stack trace:
+#0 C:\xampp\htdocs\Ecommerce Website\addItems_ajax.php(19): addCategory()
+#1 {main}
+  thrown in C:\xampp\htdocs\Ecommerce Website\functions.php on line 212
+[23-Feb-2021 21:30:37 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\functions.php on line 330
+[23-Feb-2021 21:30:37 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\functions.php on line 330
+[23-Feb-2021 21:30:37 Asia/Calcutta] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\Ecommerce Website\functions.php on line 330

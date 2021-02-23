@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2021 at 08:59 PM
+-- Generation Time: Feb 23, 2021 at 11:47 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -51,6 +51,72 @@ INSERT INTO `category` (`id`, `category_name`, `code`, `parent_id`, `status`) VA
 (9, 'Ring', 'RING', 8, 'active'),
 (10, 'Car', 'CAR', NULL, 'active'),
 (11, 'Tyres', 'TYRE', 10, 'active');
+
+--
+-- Triggers `category`
+--
+DELIMITER $$
+CREATE TRIGGER `active_inactive_category` AFTER UPDATE ON `category` FOR EACH ROW BEGIN
+DECLARE query varchar(20);
+DECLARE count INT(10);
+DECLARE total_count INT(10);
+	SET total_count=(SELECT COUNT(*) FROM category WHERE parent_id=NEW.id);
+    SET count=0;
+	IF NEW.status='inactive' AND NEW.parent_id IS NULL THEN
+		WHILE (count<total_count) DO
+            SET @query=(SELECT code FROM category WHERE 
+                parent_id=NEW.id LIMIT count,1);
+                UPDATE product SET status='inactive' WHERE code=@query;
+                SET count=count+1;
+        END WHILE;
+	ELSEIF NEW.status='active' AND NEW.parent_id IS NULL THEN
+    	WHILE (count<total_count) DO
+            SET @query=(SELECT code FROM category WHERE 
+                parent_id=NEW.id LIMIT count,1);
+                UPDATE product SET status='active' WHERE code=@query;
+                SET count=count+1;
+        END WHILE;
+	ELSEIF NEW.status='inactive' AND NEW.parent_id IS NOT NULL THEN
+		UPDATE product SET status='inactive' WHERE code=NEW.code;
+    ELSEIF NEW.status='active' AND NEW.parent_id IS NOT NULL THEN
+		UPDATE product SET status='active' WHERE code=NEW.code;
+	END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_category` AFTER DELETE ON `category` FOR EACH ROW BEGIN
+	DECLARE query varchar(20);
+	DECLARE count INT(10);
+	DECLARE total_count INT(10);
+	SET total_count=(SELECT COUNT(*) FROM category WHERE parent_id=OLD.id);
+    SET count=0;
+	IF OLD.parent_id IS NULL THEN
+		WHILE (count<total_count) DO
+            SET @query=(SELECT code FROM category WHERE 
+                parent_id=OLD.id LIMIT count,1);
+                DELETE FROM product WHERE code=@query;
+                SET count=count+1;
+        END WHILE;
+	ELSEIF OLD.parent_id IS NOT NULL THEN
+		DELETE FROM product WHERE code=OLD.code;
+	END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `inserProduct` AFTER INSERT ON `category` FOR EACH ROW BEGIN
+	DECLARE count INT(10);
+	IF NEW.code='a' THEN
+		SET count=14;
+		WHILE (count<=514) DO
+        	INSERT INTO product VALUES(14, 'JK Tyre Neo 155/80 R13 Tubeless Car Tyre', 'TYRE', '₹5000', 'images/civic-exterior-right-front-three-quarter.png', 'active');
+            SET count=count+1;
+        END WHILE;
+	END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 

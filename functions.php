@@ -23,7 +23,15 @@
             $stmt1->execute();
             $result = $stmt1->get_result();
             while($row = $result->fetch_assoc()){
-                inactive_active_pdelete_Data('category');
+                if($_POST["operation"] == "delete_record"){
+                    $stmt1 = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
+                }else if($_POST["operation"] == "permanent_delete_data"){
+                    $stmt1 = $conn->prepare("DELETE FROM category WHERE code=?");
+                }else{
+                    $stmt1 = $conn->prepare("UPDATE category SET status='active' WHERE code=?");
+                }
+                $stmt1->bind_param("s", $row["code"]);
+                $stmt1->execute();
             }
         }else if($_POST["source"] == "subcategory"){
             if($_POST["operation"] == "delete_record"){
@@ -33,7 +41,6 @@
             }else{
                 $stmt = $conn->prepare("UPDATE category SET status='active' WHERE code=?");
             }
-            inactive_active_pdelete_Data('subcategory');
         }else if($_POST["source"] == "product"){
             if($_POST["operation"] == "delete_record"){
                 $stmt = $conn->prepare("UPDATE product SET status='inactive' WHERE id=?");
@@ -62,41 +69,6 @@
             $return_data["ack"] = "no";
         }
     }
-
-    function inactive_active_pdelete_Data($source){
-		global $conn, $row;
-		if($source == 'category'){
-            if($_POST["operation"] == "delete_record"){
-                $stmt1 = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
-            }else if($_POST["operation"] == "permanent_delete_data"){
-                $stmt1 = $conn->prepare("DELETE FROM category WHERE code=?");
-            }else{
-                $stmt1 = $conn->prepare("UPDATE category SET status='active' WHERE code=?");
-            }
-            $stmt1->bind_param("s", $row["code"]);
-            $stmt1->execute();
-        }
-
-		$stmt1 = $conn->prepare("SELECT id FROM product WHERE code=?");
-		if($source == 'category'){
-			$stmt1->bind_param("s", $row["code"]);
-		}else{
-			$stmt1->bind_param("s", $_POST["code"]);
-		}
-		$stmt1->execute();
-		$result1 = $stmt1->get_result();
-		while($row1 = $result1->fetch_assoc()){
-            if($_POST["operation"] == "delete_record"){
-                $stmt1 = $conn->prepare("UPDATE product SET status='inactive' WHERE id=?");
-            }else if($_POST["operation"] == "permanent_delete_data"){
-                $stmt1 = $conn->prepare("DELETE FROM product WHERE id=?");
-            }else{
-                $stmt1 = $conn->prepare("UPDATE product SET status='active' WHERE id=?");
-            }
-			$stmt1->bind_param("i", $row1["id"]);
-			$stmt1->execute();
-		}
-	}
     
     function editItem(){
         global $conn, $return_data, $stmt;
@@ -203,13 +175,14 @@
     }
     function addCategory(){
         global $conn, $return_data, $stmt;
-        $stmt = $conn->prepare("SELECT * FROM category;");
+        $stmt = $conn->prepare("SELECT id FROM category ORDER BY id DESC LIMIT 0, 1");
         $stmt->execute();
         $result = $stmt->get_result();
-        $count = mysqli_num_rows($result)+1;
+        $row = $result->fetch_assoc();
+        $id=$row["id"]+1;
         
         $stmt = $conn->prepare("INSERT INTO category(id, category_name, code, status) VALUES(?, ?, ?, 'active')");
-        $stmt->bind_param("iss", $count, $_POST["category_name"], $_POST["category_code"] );
+        $stmt->bind_param("iss", $id, $_POST["category_name"], $_POST["category_code"] );
         if($stmt->execute()){
             $return_data["ack"] = "yes";
         }else{
