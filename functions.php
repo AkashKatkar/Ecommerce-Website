@@ -11,28 +11,8 @@
     function delete_OR_restore_Item(){
         global $conn, $return_data, $stmt, $row;
         if($_POST["source"] == "category"){
-            if($_POST["operation"] == "delete_record"){
-                $stmt = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
-            }else if($_POST["operation"] == "permanent_delete_data"){
-                $stmt = $conn->prepare("DELETE FROM category WHERE code=?");
-            }else{
-                $stmt = $conn->prepare("UPDATE category SET status='active' WHERE code=?");
-            }
-            $stmt1 = $conn->prepare("SELECT code FROM category WHERE parent_id=(SELECT id from category WHERE code=?);");
-            $stmt1->bind_param("s", $_POST["code"]);
-            $stmt1->execute();
-            $result = $stmt1->get_result();
-            while($row = $result->fetch_assoc()){
-                if($_POST["operation"] == "delete_record"){
-                    $stmt1 = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
-                }else if($_POST["operation"] == "permanent_delete_data"){
-                    $stmt1 = $conn->prepare("DELETE FROM category WHERE code=?");
-                }else{
-                    $stmt1 = $conn->prepare("UPDATE category SET status='active' WHERE code=?");
-                }
-                $stmt1->bind_param("s", $row["code"]);
-                $stmt1->execute();
-            }
+            $stmt = $conn->prepare("CALL incative_delete_active_category(?, ?);");
+            $stmt->bind_param("ss", $_POST["operation"], $_POST["code"]);
         }else if($_POST["source"] == "subcategory"){
             if($_POST["operation"] == "delete_record"){
                 $stmt = $conn->prepare("UPDATE category SET status='inactive' WHERE code=?");
@@ -41,6 +21,7 @@
             }else{
                 $stmt = $conn->prepare("UPDATE category SET status='active' WHERE code=?");
             }
+            $stmt->bind_param("s", $_POST["code"]);
         }else if($_POST["source"] == "product"){
             if($_POST["operation"] == "delete_record"){
                 $stmt = $conn->prepare("UPDATE product SET status='inactive' WHERE id=?");
@@ -49,8 +30,8 @@
             }else{
                 $stmt = $conn->prepare("UPDATE product SET status='active' WHERE id=?");
             }
+            $stmt->bind_param("s", $_POST["code"]);
         }
-        $stmt->bind_param("s", $_POST["code"]);
         if($stmt->execute()){
             if($_POST["operation"] == "delete_record"){
                 if($_POST["source"] == "category"){
@@ -220,13 +201,20 @@
         public $total_subcategory;
 
         public function myQuery($source){
-            global $conn, $page, $showRows, $total_pages, $stmt, $result, $j, $num, $total_subcategory;
+            global $conn, $page, $showRows, $total_pages, $stmt, $result, $j, $num, $total_subcategory, $search;
             if($source == "category"){
-                $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive'");
+                $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') OR code LIKE concat('%','$search','%'))");
             }else if($source == "subcategory"){
-                $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive'");
+                $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') OR code LIKE concat('%','$search','%'))");
             }else{
-                $stmt=$conn->prepare("SELECT * FROM product WHERE status<>'inactive'");
+                $stmt=$conn->prepare("SELECT product.id, product.prod_name, category.category_name, product.price, product.product_image 
+                            FROM product
+                            INNER JOIN category ON category.code = product.code
+                            WHERE product.status<>'inactive' 
+                            AND (product.id LIKE concat('%','$search','%') 
+                            OR product.prod_name LIKE concat('%','$search','%') 
+                            OR product.price LIKE concat('%','$search','%') 
+                            OR category.category_name LIKE concat('%','$search','%'))");
             }
             $stmt->execute();
             $result = $stmt->get_result();
@@ -237,11 +225,38 @@
                 $start = $showRows*($page-1);
 
                 if($source == "category"){
-                    $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive' LIMIT $start,$showRows");
+                    if($search!=''){
+                        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL 
+                        AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') 
+                        OR code LIKE concat('%','$search','%'))");
+                    }else{
+                        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive' LIMIT $start,$showRows");
+                    }
                 }else if($source == "subcategory"){
-                    $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive' LIMIT $start,$showRows");
+                    if($search!=''){
+                        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL 
+                        AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') 
+                        OR code LIKE concat('%','$search','%'))");
+                    }else{
+                        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive' LIMIT $start,$showRows");
+                    }
                 }else{
-                    $stmt = $conn->prepare("SELECT * FROM product WHERE status<>'inactive' LIMIT $start,$showRows");
+                    if($search!=''){
+                        $stmt = $conn->prepare("SELECT product.id, product.prod_name, category.category_name, product.price, product.product_image 
+                        FROM product
+                        INNER JOIN category ON category.code = product.code
+                        WHERE product.status<>'inactive' 
+                        AND (product.id LIKE concat('%','$search','%') 
+                        OR product.prod_name LIKE concat('%','$search','%') 
+                        OR product.price LIKE concat('%','$search','%') 
+                        OR category.category_name LIKE concat('%','$search','%'))");
+                    }else{
+                        $stmt = $conn->prepare("SELECT product.id, product.prod_name, category.category_name, product.price, product.product_image 
+                        FROM product
+                        INNER JOIN category ON category.code = product.code
+                        WHERE product.status<>'inactive' 
+                        LIMIT $start,$showRows");
+                    }
                 }
                 $stmt->execute();
                 $result = $stmt->get_result();
@@ -326,18 +341,13 @@
                 </thead><tbody>";
                 
                 while($row=$result->fetch_assoc()){
-                    $stmt = $conn->prepare("SELECT category_name FROM category WHERE code=? order by id");
-                    $stmt->bind_param("s",$row["code"]);
-                    $stmt->execute();
-                    $result1 = $stmt->get_result();
-                    $row1 = $result1->fetch_assoc();
                     $output.="<tr>
                     <th>$num</th>
                     <td>".$row['id']."</td>
                     <td id='product_name".$j."' class='prod_editRows".$j."'>".$row['prod_name']."</td>
-                    <td id='product_categ".$j."'><p class='paddTag".$j."'>".$row1['category_name']."</p></td>
+                    <td id='product_categ".$j."'><p class='paddTag".$j."'>".$row['category_name']."</p></td>
                     <td id='product_price".$j."' class='prod_editRows".$j."'>".$row['price']."</td>
-                    <td><img id='product_image".$j."' src='".$row['product_image']."' alt='".$row["code"]."' width='100' height='100' /></td>
+                    <td><img id='product_image".$j."' src='".$row['product_image']."' alt='".$row["prod_name"]."' width='100' height='100' /></td>
                     <td style='min-width: 104px;'><button type='button' class='btn_' style='margin-right:5px' id='edit_prod".$j."' onclick=editRecord($j,'product')><i class='fa fa-pencil btn_j$j'></i></button>
                     <button type='button' class='btn_' id='delete_prod".$j."' onclick=deleteRecord($j,'product')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
                     $j++;

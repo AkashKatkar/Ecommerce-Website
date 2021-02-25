@@ -48,18 +48,31 @@
 					<div class="card-header" style='text-align: center;font-size:25px; padding: 3px;'>Category</div>
 					
 					<div class="card-body">
-						<div class="dropdown" style="margin-bottom: 30px;width: 100%;">
-							<button type="button" class="btn btn-info dropdown-toggle dropdown" style="width: 60px;height: 45px;padding-right: 25px;" data-toggle="dropdown">5</button>
-							<div class="dropdown-menu">
-								<a class="dropdown-item showRows3">3</a>
-								<a class="dropdown-item showRows5">5</a>
-								<a class="dropdown-item showRows10">10</a>
-								<a class="dropdown-item showRows15">15</a>
-								<a class="dropdown-item showRows20">20</a>
+						<div class="dropdown" style="margin-bottom: 30px;width: 100%;display: flex;">
+							<div style='flex:1;'>
+								<button type="button" class="btn btn-info dropdown-toggle dropdown" style="width: 60px;height: 45px;padding-right: 25px;" data-toggle="dropdown">5</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item showRows3">3</a>
+									<a class="dropdown-item showRows5">5</a>
+									<a class="dropdown-item showRows10">10</a>
+									<a class="dropdown-item showRows15">15</a>
+									<a class="dropdown-item showRows20">20</a>
+								</div>
 							</div>
 
-							<div class="addData float-right">
-								<button type="button" class="btn btn-info" style="height: 45px;" onclick="redirectAddItems('addCategory')">Add Category</button>
+							<div class="justify-content-center" style='flex:1;margin-right:70px;'>
+								<div class="search">
+									<input type="text" class="search-input" placeholder="Search...">
+									<!-- <a href="#" class="search-icon" onclick="search_query()">
+										<i class="fa fa-search"></i> 
+									</a>  -->
+								</div>
+							</div>
+
+							<div style='flex:1;'>
+								<div class="addData float-right">
+									<button type="button" class="btn btn-info" style="height: 45px;" onclick="redirectAddItems('addCategory')">Add Category</button>
+								</div>
 							</div>
 						</div>
 						<div id="index_tables_onload"></div>

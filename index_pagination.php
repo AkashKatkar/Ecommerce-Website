@@ -8,6 +8,7 @@
             $page = 1;
             $showRows = 1;
         }
+        $search = trim($_POST["search"]);
 
         $pagination = new Pagination();
         if($_POST["source"] == "category"){
@@ -30,6 +31,8 @@
         }
         if($total_subcategory != 0){
             $pagination->pagination_number();
+        }else if($search!=""){
+            echo "<p style='text-align:center;font-size:50px;font-weight:bold;font-family:Baloo;color:#ffbf33;'>Did Not Match Any Data</p>";
         }else{
             // echo "<script>$('.card-body .dropdown .dropdown').remove();</script>";
             echo "<p style='text-align:center;font-size:50px;font-weight:bold;font-family:Baloo;color:#ffbf33;'>Please Add Data First</p>";

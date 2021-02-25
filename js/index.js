@@ -197,7 +197,7 @@ function load_pagination(source)
     $.ajax({
         url:"index_pagination.php",
         method:"post",
-        data:{"page":page, "showRows":selectRows, "source": source},
+        data:{"page":page, "showRows":selectRows, "source": source, "search": $(".search-input").val()},
         success:function(resp){
             $("#index_tables_onload").html(resp);
         }
@@ -206,6 +206,7 @@ function load_pagination(source)
 
 function which_nav(navSource){
     this.page = 1;
+    $(".search-input").val('');
     $(".inactive_nav").removeClass("active");
     load_pagination(navSource);
     if(navSource == "category"){
@@ -225,16 +226,24 @@ function which_nav(navSource){
 }
 
 $(document).ready(function(){
-    $(".dropdown-item").on("click", function(event){
+    $(".dropdown-item").on("click", function(){
         page = 1;
         selectRows = $(this).text();
         load_pagination(navSource);
         $(".dropdown .dropdown-toggle").text(selectRows);
     });
-});
+    load_pagination('category');
 
-load_pagination('category');
+    $(".search-input").on("keyup", function(){
+        page = 1;
+        load_pagination(navSource);
+    });
+});
 
 function changeImage(position){
     $("#product_image"+position).parent(".file-upload-wrapper").attr("data-text", $("#product_image"+position).val().replace(/.*(\/|\\)/, '').substring(0, 15)+"...");
 };
+
+// function search_query(){
+//     load_pagination(navSource);
+// }
