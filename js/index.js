@@ -122,6 +122,11 @@ function editCancel(action, position, source, oldCode){
                 return $("<img id='product_image"+position+"' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
             });
         }
+        $(editData+position).attr("onclick", "editRecord("+position+",'"+source+"')");
+        $(".btn_j"+position).attr("class", "fa fa-pencil btn_j"+position);
+        $(".btn_i"+position).attr("class", "fa fa-trash btn_i"+position);
+        $(deleteData+position).attr("onclick", "deleteRecord("+position+",'"+source+"')");
+        $(editRows+position).removeAttr("contenteditable");
     }else{
         $(editData+position).attr("type", "submit");
         $("#form").one("submit" ,function(ev) {
@@ -130,7 +135,6 @@ function editCancel(action, position, source, oldCode){
             formData.append("func", "editCancel");
             formData.append("source", source);
             formData.append("oldCode", oldCode);
-            var sourceData;
             var newCategory = $(".getCategory"+position).val();
             var newSubCategory = $(".getSubCategory"+position).val();
             if(source=="category"){
@@ -141,9 +145,6 @@ function editCancel(action, position, source, oldCode){
                 formData.append("code", $("#subcategory_code"+position).text());
                 formData.append("category", newCategory);
             }else{
-                if($("#product_image"+position).val() != ""){
-                    product_image= ($("#product_image"+position).val()).replace("C:\\fakepath\\", "images/");
-                }
                 formData.append("name", $("#product_name"+position).text());
                 formData.append("category", newSubCategory);
                 formData.append("position", position);
@@ -162,17 +163,7 @@ function editCancel(action, position, source, oldCode){
                 success:function(resp){
                     if(resp["ack"] == "yes"){
                         alert("Data Updated Successfully");
-                        if(source=="subcategory"){
-                            $(".getCategory"+position).remove();
-                            $("<p class='caddTag"+position+"'>"+newCategory+"</p>").appendTo("#subcategory_categ"+position);
-                        }else if(source=="product"){
-                            $(".getSubCategory"+position).remove();
-                            $("<p class='paddTag"+position+"'>"+newSubCategory+"</p>").appendTo("#product_categ"+position);
-                            $('#product_image'+position).replaceWith(function(){
-                                return $("<img id='product_image"+position+"' src='"+product_image+"' alt='"+$(".paddTag"+position).text()+"' width='100' height='100' />");
-                            });
-                        }
-                        $(editData+position).attr("type", "button");
+                        load_pagination(navSource);
                     }else{
                         alert("Something Went Wrong");
                     }
@@ -180,11 +171,6 @@ function editCancel(action, position, source, oldCode){
             });
         });
     }
-    $(editData+position).attr("onclick", "editRecord("+position+",'"+source+"')");
-    $(".btn_j"+position).attr("class", "fa fa-pencil btn_j"+position);
-    $(".btn_i"+position).attr("class", "fa fa-trash btn_i"+position);
-    $(deleteData+position).attr("onclick", "deleteRecord("+position+",'"+source+"')");
-    $(editRows+position).removeAttr("contenteditable");
 }
 
 function changePage(page){
@@ -204,7 +190,7 @@ function load_pagination(source)
     });
 }
 
-function which_nav(navSource){
+function navigation_to(navSource){
     this.page = 1;
     $(".search-input").val('');
     $(".inactive_nav").removeClass("active");
@@ -241,9 +227,9 @@ $(document).ready(function(){
 });
 
 function changeImage(position){
-    $("#product_image"+position).parent(".file-upload-wrapper").attr("data-text", $("#product_image"+position).val().replace(/.*(\/|\\)/, '').substring(0, 15)+"...");
+    $("#product_image"+position).parent(".file-upload-wrapper").attr("data-text", $("#product_image"+position).val().replace(/.*(\/|\\)/, '').substring(0, 15));
 };
 
-// function search_query(){
-//     load_pagination(navSource);
-// }
+function search_query(){
+    load_pagination(navSource);
+}

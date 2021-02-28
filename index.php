@@ -29,13 +29,13 @@
 				<div class="p-4">
 					<h3><a href="index.php" class="logo">E-Commerce</a></h3>
 					<ul class="list-unstyled components mb-5">
-						<li class="active inactive_nav nav1" onclick="which_nav('category')">
+						<li class="active inactive_nav nav1" onclick="navigation_to('category')">
 							<a href="#"><span class="fa fa-copyright mr-3" style="font-size:18px"></span> Category</a>
 						</li>
-						<li class="inactive_nav nav2" onclick="which_nav('subcategory')">
+						<li class="inactive_nav nav2" onclick="navigation_to('subcategory')">
 							<a href="#"><span class="fa fa-creative-commons mr-3"></span> Sub-Category</a>
 						</li>
-						<li class="inactive_nav nav3" onclick="which_nav('product')">
+						<li class="inactive_nav nav3" onclick="navigation_to('product')">
 							<a href="#"><span class="fa fa-product-hunt mr-3"></span> Product</a>
 						</li>
 					</ul>
@@ -60,12 +60,12 @@
 								</div>
 							</div>
 
-							<div class="justify-content-center" style='flex:1;margin-right:70px;'>
+							<div class="justify-content-center" style='flex:1;'>  <!-- margin-right:70px; -->
 								<div class="search">
 									<input type="text" class="search-input" placeholder="Search...">
-									<!-- <a href="#" class="search-icon" onclick="search_query()">
+									<a href="#" class="search-icon" onclick="search_query()">
 										<i class="fa fa-search"></i> 
-									</a>  -->
+									</a> 
 								</div>
 							</div>
 

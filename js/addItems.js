@@ -2,7 +2,7 @@ var source;
 var itemValue;
 $(document).ready(function(){
     $(".outer_picture").on("change", ".file-upload-field", function(){ 
-        $(this).parent(".file-upload-wrapper").attr("data-text", $(this).val().replace(/.*(\/|\\)/, '').substring(0, 30)+"...");
+        $(this).parent(".file-upload-wrapper").attr("data-text", $(this).val().replace(/.*(\/|\\)/, '').substring(0, 30));
     });
 
     $(".restoreData").on("change", function(){
@@ -62,7 +62,7 @@ function addCategory()
     $.ajax({
         url:"addItems_ajax.php",
         method:"POST",
-        data:{"func": "addCategory", "category_name":$(".category_name").val(), "category_code":$(".category_code").val()},
+        data:{"func": "addCategory", "category_name":$(".category_name").val(), "category_code":$(".category_code").val(), "token": $("#token").val()},
         dataType:"json",
         success:function(resp){
             if(resp["ack"] == "yes"){
@@ -79,7 +79,7 @@ function addSubCategory(){
         url:"addItems_ajax.php",
         method:"POST",
         dataType: "json",
-        data:{"func": "addSubCategory", "category_name":$(".category_name").val(), 
+        data:{"func": "addSubCategory", "category_name":$(".category_name").val(), "token": $("#token").val(),
                 "category_code":$(".category_code").val(), "select_category": $(".main_subcategory_name").val()},
         success:function(resp){
             if(resp["ack"] == "yes"){
@@ -93,6 +93,9 @@ function addSubCategory(){
 
 function addProduct(){
     $("#add_Category").one("submit" ,function(e){
+        formData = new FormData(this);
+        formData.append("func", "addProduct");
+        formData.append("token", $("#token").val());
         e.preventDefault();
         $.ajax({
             url:"addItems_ajax.php",
@@ -100,7 +103,7 @@ function addProduct(){
             dataType:"json",
             contentType: false,
             processData: false,
-            data: new FormData(this),
+            data: formData,
             success:function(resp){
                 if(resp["ack"] == "yes"){
                     location.href = "http://localhost/Ecommerce%20Website/index.php";

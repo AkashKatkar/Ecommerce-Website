@@ -1,4 +1,5 @@
 <?php
+    session_start();
     date_default_timezone_set("Asia/Calcutta");
     ini_set("display_errors", 1);
     ini_set("log_errors", 1);
@@ -65,11 +66,22 @@
             $stmt1->execute();
         }else{
             $file = $_FILES["image_file".$_POST["position"]];
-            if(basename($file["name"]) != NULL){
-                $file_name = "images/".basename($file["name"]);
-                move_uploaded_file($file["tmp_name"], "images/" . basename($file["name"]));
+            if(basename($file["name"]) != '' || basename($file["name"]) != NULL){
+                if(file_exists("images/".basename($file["name"])) == 1){
+                    for($i=0;$i<=$i;$i++){
+                        if(file_exists("images/".$i.basename($file["name"])) != 1){
+                            $file_name = "images/".$i.basename($file["name"]);
+                            move_uploaded_file($file["tmp_name"], "images/".$i. basename($file["name"]));
+                            break;
+                        }
+                    }
+                }else{
+                    $file_name = "images/".basename($file["name"]);
+                    move_uploaded_file($file["tmp_name"], "images/" . basename($file["name"]));
+                }
+            }else{
+                $file_name = $_POST['image'];
             }
-            $file_name = $_POST["image"];
             $stmt = $conn->prepare("UPDATE product SET prod_name=?, code=(SELECT code FROM category WHERE category_name=?), price=?, product_image=? WHERE id=?");
             $stmt->bind_param("sssss", $_POST["name"], $_POST["category"], $_POST["price"], $file_name, $_POST["oldCode"]);
         }
@@ -86,10 +98,9 @@
         $stmt->execute();
         $result = $stmt->get_result();
         $arr = [];
-        $i=0;
         while($row = $result->fetch_assoc()){
-            $arr[$i] = $row["category_name"];
-            $i = $i+1;
+            array_push($arr,$row["category_name"]);
+           
         }
         $return_data["allCategory"] = $arr;
     }
@@ -108,67 +119,82 @@
         $return_data["allCategory"] = $arr;
     }
     function addSubCategory(){
-        global $conn, $return_data, $stmt;
-        $stmt = $conn->prepare("SELECT * FROM category;");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $count = mysqli_num_rows($result)+1;
+        if($_SESSION['token'] == $_POST['token']){
+            global $conn, $return_data, $stmt;
+            $stmt = $conn->prepare("SELECT * FROM category;");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $count = mysqli_num_rows($result)+1;
 
-        $stmt = $conn->prepare("SELECT id FROM category WHERE category_name=?");
-        $stmt->bind_param("s", $_POST["select_category"]);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
+            $stmt = $conn->prepare("SELECT id FROM category WHERE category_name=?");
+            $stmt->bind_param("s", $_POST["select_category"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
 
-        $stmt = $conn->prepare("INSERT INTO category VALUES(?,?,?,?,'active')");
-        $stmt->bind_param("issi", $count, $_POST["category_name"], $_POST["category_code"], $row["id"]);
-        if($stmt->execute()){
-            $return_data["ack"] = "yes";
+            $stmt = $conn->prepare("INSERT INTO category VALUES(?,?,?,?,'active')");
+            $stmt->bind_param("issi", $count, $_POST["category_name"], $_POST["category_code"], $row["id"]);
+            if($stmt->execute()){
+                $return_data["ack"] = "yes";
+            }else{
+                $return_data["ack"] = "no";
+            }
         }else{
-            $return_data["ack"] = "no";
+            echo "Tu Hack Nahi Kr Payega";
         }
+        session_write_close();
     }
     function addProduct(){
-        global $conn, $return_data, $stmt;
-        $stmt = $conn->prepare("SELECT code FROM category WHERE category_name=?");
-        $stmt->bind_param("s", $_POST["product_code"]);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
+        if($_SESSION['token'] == $_POST['token']){
+            global $conn, $return_data, $stmt;
+            $stmt = $conn->prepare("SELECT code FROM category WHERE category_name=?");
+            $stmt->bind_param("s", $_POST["product_code"]);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
 
-        $stmt = $conn->prepare("SELECT id FROM product ORDER BY id DESC LIMIT 0, 1");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row1 = $result->fetch_assoc();
-        $row1 = $row1["id"]+1;
-        
-        $file = $_FILES['img_file'];
-        $file_location = "images/".basename($file["name"]);
+            $stmt = $conn->prepare("SELECT id FROM product ORDER BY id DESC LIMIT 0, 1");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row1 = $result->fetch_assoc();
+            $row1 = $row1["id"]+1;
+            
+            $file = $_FILES['img_file'];
+            $file_location = "images/".basename($file["name"]);
 
-        $stmt->prepare("INSERT INTO product VALUES(?,?,?,?,?,'active')");
-        $stmt->bind_param("issss", $row1, $_POST["product_name"], $row["code"], $_POST["product_price"], $file_location);
-        if($stmt->execute()){
-            $return_data["ack"] = "yes";
-            move_uploaded_file($file["tmp_name"], "images/" . basename($file["name"]));
+            $stmt->prepare("INSERT INTO product VALUES(?,?,?,?,?,'active')");
+            $stmt->bind_param("issss", $row1, $_POST["product_name"], $row["code"], $_POST["product_price"], $file_location);
+            if($stmt->execute()){
+                $return_data["ack"] = "yes";
+                move_uploaded_file($file["tmp_name"], "images/" . basename($file["name"]));
+            }else{
+                $return_data["ack"] = "no";
+            }
         }else{
-            $return_data["ack"] = "no";
+            echo "Tu Hack Nahi Kr Payega";
         }
+        session_write_close();
     }
     function addCategory(){
-        global $conn, $return_data, $stmt;
-        $stmt = $conn->prepare("SELECT id FROM category ORDER BY id DESC LIMIT 0, 1");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        $id=$row["id"]+1;
-        
-        $stmt = $conn->prepare("INSERT INTO category(id, category_name, code, status) VALUES(?, ?, ?, 'active')");
-        $stmt->bind_param("iss", $id, $_POST["category_name"], $_POST["category_code"] );
-        if($stmt->execute()){
-            $return_data["ack"] = "yes";
+        if($_SESSION['token'] == $_POST['token']){
+            global $conn, $return_data, $stmt;
+            $stmt = $conn->prepare("SELECT id FROM category ORDER BY id DESC LIMIT 0, 1");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $id=$row["id"]+1;
+            
+            $stmt = $conn->prepare("INSERT INTO category(id, category_name, code, status) VALUES(?, ?, ?, 'active')");
+            $stmt->bind_param("iss", $id, $_POST["category_name"], $_POST["category_code"] );
+            if($stmt->execute()){
+                $return_data["ack"] = "yes";
+            }else{
+                $return_data["ack"] = "no";
+            }
         }else{
-            $return_data["ack"] = "no";
+            echo "Tu Hack Nahi Kr Payega";
         }
+        session_write_close();
     }
     function getRestoreData(){
         global $conn, $return_data, $stmt;
@@ -199,13 +225,20 @@
 
     class Pagination{
         public $total_subcategory;
-
         public function myQuery($source){
+            try {
             global $conn, $page, $showRows, $total_pages, $stmt, $result, $j, $num, $total_subcategory, $search;
             if($source == "category"){
                 $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') OR code LIKE concat('%','$search','%'))");
             }else if($source == "subcategory"){
-                $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') OR code LIKE concat('%','$search','%'))");
+                $stmt = $conn->prepare("SELECT A.category_name, A.code, B.category_name
+                FROM category A, category B
+                WHERE A.parent_id=B.id
+                AND A.parent_id IS NOT NULL 
+                AND A.status<>'inactive'
+                AND (A.category_name LIKE concat('%','$search','%') 
+                OR A.code LIKE concat('%','$search','%') 
+                OR B.category_name LIKE concat('%','$search','%'))");
             }else{
                 $stmt=$conn->prepare("SELECT product.id, product.prod_name, category.category_name, product.price, product.product_image 
                             FROM product
@@ -228,17 +261,27 @@
                     if($search!=''){
                         $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL 
                         AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') 
-                        OR code LIKE concat('%','$search','%'))");
+                        OR code LIKE concat('%','$search','%'))  LIMIT $start,$showRows");
                     }else{
                         $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NULL AND status<>'inactive' LIMIT $start,$showRows");
                     }
                 }else if($source == "subcategory"){
                     if($search!=''){
-                        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL 
-                        AND status<>'inactive' AND (category_name LIKE concat('%','$search','%') 
-                        OR code LIKE concat('%','$search','%'))");
+                        $stmt = $conn->prepare("SELECT A.category_name, A.code, B.category_name AS parent_category
+                        FROM category A, category B
+                        WHERE A.parent_id=B.id
+                        AND A.parent_id IS NOT NULL 
+                        AND A.status<>'inactive'
+                        AND (A.category_name LIKE concat('%','$search','%') 
+                        OR A.code LIKE concat('%','$search','%') 
+                        OR B.category_name LIKE concat('%','$search','%')) LIMIT $start,$showRows");
                     }else{
-                        $stmt = $conn->prepare("SELECT * FROM category WHERE parent_id IS NOT NULL AND status<>'inactive' LIMIT $start,$showRows");
+                        $stmt = $conn->prepare("SELECT A.category_name, A.code, B.category_name AS parent_category
+                        FROM category A, category B
+                        WHERE A.parent_id=B.id
+                        AND A.parent_id IS NOT NULL 
+                        AND A.status<>'inactive'
+                        LIMIT $start,$showRows");
                     }
                 }else{
                     if($search!=''){
@@ -249,7 +292,7 @@
                         AND (product.id LIKE concat('%','$search','%') 
                         OR product.prod_name LIKE concat('%','$search','%') 
                         OR product.price LIKE concat('%','$search','%') 
-                        OR category.category_name LIKE concat('%','$search','%'))");
+                        OR category.category_name LIKE concat('%','$search','%'))  LIMIT $start,$showRows");
                     }else{
                         $stmt = $conn->prepare("SELECT product.id, product.prod_name, category.category_name, product.price, product.product_image 
                         FROM product
@@ -264,6 +307,13 @@
                 $j=1;
                 $num=$showRows*($page-1)+1;
             }
+
+        } catch (Throwable $th) {
+            echo $th->getMessage();
+            exit();
+        }
+
+
         }
 
         public function showCategory(){
@@ -304,17 +354,11 @@
                     </tr>
                 </thead><tbody>";
                 while($row = $result->fetch_assoc()){
-                    $stmt = $conn->prepare("SELECT category_name FROM category WHERE id=?");
-                    $stmt->bind_param("s", $row['parent_id']);
-                    $stmt->execute();
-                    $result1 = $stmt->get_result();
-                    $row1 = $result1->fetch_assoc();
-
                     $output.="<tr>
                     <th>$num</th>
                     <td id='subcategory_name".$j."' class='subcate_editRows".$j."'>".$row['category_name']."</td>
                     <td id='subcategory_code".$j."' class='subcate_editRows".$j."'>".$row['code']."</td>
-                    <td id='subcategory_categ".$j."'><p class='caddTag".$j."'>".$row1['category_name']."</p></td>
+                    <td id='subcategory_categ".$j."'><p class='caddTag".$j."'>".$row['parent_category']."</p></td>
                     <td><button type='button' class='btn_' style='margin-right:5px' id='edit_subcateg".$j."' onclick=editRecord($j,'subcategory')><i class='fa fa-pencil btn_j$j'></i></button>
                     <button type='button' class='btn_' id='delete_subcateg".$j."' onclick=deleteRecord($j,'subcategory')><i class='fa fa-trash btn_i$j'></i></button></td></tr>";
                     $j++;

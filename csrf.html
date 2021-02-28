@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<!-- <meta name="referrer" content="origin-when-cross-origin"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<form id="add_Category" method="POST" action="http://localhost/Ecommerce%20Website/addItems_ajax.php" enctype="multipart/form-data">
+	        <div class="form-group main_category_name">
+	            <input type="text" name="product_name" class="form-control my-input category_name" id="name" placeholder="Name">
+	        </div>
+	        <div class="form-group outer_category_code">
+	            <input type="text" class="form-control my-input category_code" placeholder="Code">
+	        </div>
+	        <div class="text-center">
+	            <button type="button" class="btn btn-block send-button tx-tfm addItemBtn" onclick="addCategory()">SUBMIT</button>
+	        </div>
+	    </form>
+	    
+		<script type="text/javascript">
+			function addCategory()
+			{
+			    $.ajax({
+			        url:"http://localhost/Ecommerce%20Website/addItems_ajax.php",
+			        method:"POST",
+			        data:{"func": "addCategory", "category_name":$(".category_name").val(), "category_code":$(".category_code").val()},
+			        dataType:"json",
+			        // headers: {'Access-Control-Allow-Origin': 'http://localhost/Ecommerce%20Website/'},
+			        jsonp:true,
+			        success:function(resp){
+			            if(resp["ack"] == "yes"){
+			                location.href = "abc";
+			            }else{
+			                alert("Something Went Wrong");
+			            }
+			        }
+			    });  
+			}
+		</script>
+	</body>
+</html>

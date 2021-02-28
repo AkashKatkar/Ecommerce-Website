@@ -1,4 +1,9 @@
-<html>
+<?php
+    session_start();
+    $token = md5(rand());
+    $_SESSION['token'] = $token;
+?>
+<html lang="en">
     <head>
         <title>Add Items</title>
 
@@ -45,7 +50,7 @@
                                 <div class="text-center">
                                     <button type="button" class="btn btn-block send-button tx-tfm addItemBtn" onclick="addCategory()">SUBMIT</button>
                                 </div>
-                                <input type="hidden" name="func" value="addProduct" class="hidden_tag"/>
+                                <input type="hidden" id="token" value="<?php echo $token ?>"/>
                             </form>
 
                             <div class="text-center main_restoreDataBtn">
@@ -56,7 +61,6 @@
                                     <option hidden class="selectOneItem">Select item to add</option>
                                 </select>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
